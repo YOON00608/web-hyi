@@ -24,8 +24,32 @@ public class Ex1_Variable {
 		
 		//변수 x의 값에 연산을 한 후 다시 대입하면 연산한 값이 유지가 된다.
 		//값을 유지하기 위해서는 대입해야  함.
+		//대입은 필요한만큼 할 수 있다.
 		x = x + 1;
 		System.out.println(x); // -> 56
+		
+		//------------------------------------------------
+		
+		//선언과 동시에 값을 대입
+		int y = 30;
+		
+		//변수는 출력문이나 연산식에 사용되어 값을 활용할 수 있다.
+		int hour = 3;
+		int minute = 5;
+		//숫자 + 문자열은 문자열로 합쳐진다.
+		System.out.println(hour + "시간" + minute + "분"); // -> 3시간5분
+		
+		// 총 몇 분인지 구하기
+		int totalMinute = hour  * 660 + minute;
+		System.out.println("총" + totalMinute + "분"); // ->총1985분
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
