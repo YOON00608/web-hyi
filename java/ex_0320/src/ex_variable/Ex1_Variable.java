@@ -40,8 +40,9 @@ public class Ex1_Variable {
 		System.out.println(hour + "시간" + minute + "분"); // -> 3시간5분
 		
 		// 총 몇 분인지 구하기
-		int totalMinute = hour  * 660 + minute;
-		System.out.println("총" + totalMinute + "분"); // ->총1985분
+		int totalMinute = hour  * 60 + minute;
+		System.out.println("총" + totalMinute + "분"); // ->총185분
+		
 		
 		
 		
