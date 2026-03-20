@@ -37,12 +37,20 @@ public class Ex1_Variable {
 		int hour = 3;
 		int minute = 5;
 		//숫자 + 문자열은 문자열로 합쳐진다.
-		System.out.println(hour + "시간" + minute + "분"); // -> 3시간5분
+		System.out.println(hour + "시간" + minute + "분"); //-> 3시간5분
 		
 		// 총 몇 분인지 구하기
 		int totalMinute = hour  * 60 + minute;
-		System.out.println("총" + totalMinute + "분"); // ->총185분
+		System.out.println("총" + totalMinute + "분"); //-> 총185분
 		
+		//------------------------------------------------
+		
+		// 변수는 또 다른 변수에 대입되어 메모리 간에  값을 복사할 수 있다.
+		int a = 3;
+		int b = a;
+		
+		System.out.println("a="+ a); //-> a=3
+		System.out.println("b="+ b); //-> b=3
 		
 		
 		
