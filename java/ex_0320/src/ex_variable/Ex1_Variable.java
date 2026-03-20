@@ -52,13 +52,6 @@ public class Ex1_Variable {
 		System.out.println("a="+ a); //-> a=3
 		System.out.println("b="+ b); //-> b=3
 		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }
