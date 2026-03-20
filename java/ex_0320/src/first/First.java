@@ -8,6 +8,9 @@ public class First {	// 클래스명 = 소스파일명 -> First.java
 	public static void main(String[] args) {
 		//소괄호 안에 내용을 화면에 출력하는 메서드
 		System.out.println("hello world");
-		
+		/*
+		 * 영역 안에 있으면
+		 * 전부 주석 처리를 한다.
+		 * */
 	}
 }	// 클래스 선언 끝
