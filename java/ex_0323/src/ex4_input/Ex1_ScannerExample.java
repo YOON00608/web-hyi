@@ -32,6 +32,5 @@ public class Ex1_ScannerExample {
 		System.out.printf("당신의 주소는 %s입니다.\n",address);
 		System.out.printf("당신의 신장은 %.1fcm입니다.\n",height);
 		
-		
 	}
 }
