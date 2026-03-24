@@ -16,6 +16,13 @@ public class Ex1_AssignOperatorExample {
 			int x = 10;
 			
 			x += 3; // x = x + 3;
-			System.out.println(x);
+			System.out.println(x); // 13
+			
+			x -= 2; // x = x - 2;
+			System.out.println(x); // 11
+			
+			x *= 5; // x = x * 5;
+			System.out.println(x); // 55
+			
 	}
 }
