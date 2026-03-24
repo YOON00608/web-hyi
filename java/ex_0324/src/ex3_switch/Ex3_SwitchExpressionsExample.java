@@ -1,5 +1,7 @@
 package ex3_switch;
 
+import java.util.Scanner;
+
 public class Ex3_SwitchExpressionsExample {
 	public static void main(String[] args) {
 		
@@ -78,5 +80,40 @@ public class Ex3_SwitchExpressionsExample {
 		};
 		
 		System.out.println(result3);
+		
+		// 계산기 만들기
+		// 두 개의 정수형 변수를 키보드에서 입력받는다.
+		// 연산자 기호를 담아줄 문자열 변수를 만든다.
+		// switch문을 이용하여 정수의 연산을 수행하는 코드 작성하기
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("첫 번째 정수 : ");
+		int n1 = sc.nextInt();
+		
+		System.out.print("두 번째 정수 : ");
+		int n2 = sc.nextInt();
+		
+		System.out.print("연산자 입력 : ");
+		String op = sc.next();
+		
+		switch(op) {
+		case "+":
+			System.out.println("값: " + (n1 + n2));
+			break;
+		case "-":
+			System.out.println("값: " + (n1 - n2));
+			break;
+		case "*":
+			System.out.println("값: " + (n1 * n2));
+			break;
+		case "/":
+			if(n2 == 0) {
+			System.out.println("0으로 나눌 수 없습니다.");
+			} else {
+				System.out.println("값: " + ((double) n1/n2));
+			} break;
+			default : System.out.println("잘못 입력했습니다.");
+		}
 	}
 }
