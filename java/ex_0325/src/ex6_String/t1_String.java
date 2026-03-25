@@ -15,11 +15,9 @@ public class t1_String {
 
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
-
-            // result에 이미 포함되어 있는지 확인
             
             if (result.indexOf(ch) == -1) {
-                result = result + ch; // 문자열 이어붙이기
+                result = result + ch; 
             }
         }
 
