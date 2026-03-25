@@ -3,7 +3,7 @@ package ex6_String;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StringExample {
+public class Ex1_StringExample {
 	public static void main(String[] args) {
 		//String
 		//문자들의 집합을 저장하는 객체 타입
