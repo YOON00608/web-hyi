@@ -43,7 +43,7 @@ public class Ex2_DoWhileExample {
 //				System.out.println("접속 차단");
 //			}
 //			
-//		}while(!login.equals("1234") & count < 5);
+//		}while(!login.equals("1234") && count < 5);
 				
 		System.out.println("---------------------------------------------");
 		
