@@ -51,5 +51,24 @@ public class Ex1_MultiForExample {
 		}
 		
 		System.out.println("---------------------------------------------");
+		
+		// A B C D
+		// E F G H
+		// I K K L
+		
+		// 아스키코드 활용하기
+		
+		char ch = 'A';
+		
+		for (int i = 0; i < 3; i++) {
+			for(int j = 0; j < 4; j++) {
+				System.out.print(ch++ + " ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("---------------------------------------------");
+		
+		
 	}
 }
