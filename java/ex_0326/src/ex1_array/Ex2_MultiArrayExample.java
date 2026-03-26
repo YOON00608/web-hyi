@@ -56,22 +56,22 @@ public class Ex2_MultiArrayExample {
 		
 		// 다음 2차원 배열의 모든 요소의 총 합을 구하세요.
 		
-		System.out.println("-----------");
-		
-		int[][] num = {{1},{2,3},{4,5,6},{7,8,9,10}};
-		// 2차 배열은 4
-		// 1차 배열은 0 / 0,1 / 0,1,2 / 0,1,2,3
-		
-		int sum = 0;
-		
-		for(int i = 0; i < num.length; i++) {
-			for(int j = 0; j < num[i].length; j++) {
-				sum += num[i][j];
-			}
-		}
-		System.out.println(sum);
-		
-		System.out.println("-----------");
+//		System.out.println("-----------");
+//		
+//		int[][] num = {{1},{2,3},{4,5,6},{7,8,9,10}};
+//		// 2차 배열은 4
+//		// 1차 배열은 0 / 0,1 / 0,1,2 / 0,1,2,3
+//		
+//		int sum = 0;
+//		
+//		for(int i = 0; i < num.length; i++) {
+//			for(int j = 0; j < num[i].length; j++) {
+//				sum += num[i][j];
+//			}
+//		}
+//		System.out.println(sum);
+//		
+//		System.out.println("-----------");
 		
 		// 학생들의 수학과 영어성적을 등록하는 프로그램이 있다.
 		// 프로그램을 실행하면 몇 명의 정보를 저장할 것인지를 입력한 후,
@@ -92,29 +92,39 @@ public class Ex2_MultiArrayExample {
 		// 홍길동 90 87
 		// 독고길동 70 100
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("등록할 인원 수 : ");
-		int people = sc.nextInt();
-		
-		String[][] score = new String[people][3];
-		
-			for(int i = 0; i < score.length; i++){
-				System.out.print("이름: ");
-				score[i][0] = sc.next();
-				System.out.print("수학: ");
-				score[i][1] = sc.next();
-				System.out.print("영어: ");
-				score[i][2] = sc.next();
-			}
-			System.out.println(score.length + "명 등록완료!");
-			for(int i = 0; i < score.length; i++) {
-				for(int j = 0; j < score[i].length; j++) {
-					System.out.print(score[i][j] + " ");
-				}
-				System.out.println();
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("등록할 인원 수 : ");
+//		int people = sc.nextInt();
+//		
+//		String[][] score = new String[people][3];
+//		
+//			for(int i = 0; i < score.length; i++){
+//				System.out.print("이름: ");
+//				score[i][0] = sc.next();
+//				System.out.print("수학: ");
+//				score[i][1] = sc.next();
+//				System.out.print("영어: ");
+//				score[i][2] = sc.next();
+//			}
+//			System.out.println(score.length + "명 등록완료!");
+//			for(int i = 0; i < score.length; i++) {
+//				for(int j = 0; j < score[i].length; j++) {
+//					System.out.print(score[i][j] + " ");
+//				}
+//				System.out.println();
+//			}
+			
+			System.out.println("-----------");
+			
+			int[] scores = {95,71,84,93,87};
+			
+			int sum = 0;
+			
+			for(int score : scores) {
+				sum += score;
 			}
 			
-			
+			System.out.println("총 합 :" + sum);
 			
 			
 			
