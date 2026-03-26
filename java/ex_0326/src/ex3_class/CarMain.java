@@ -30,6 +30,7 @@ public class CarMain {
 		System.out.println("색상 : " + c2.color);
 		System.out.println("브랜드 : " + c2.brand);
 		
+		System.out.println(c2); // ex3_class.Car@5e25a92e -> 주소
 		
 		
 		
