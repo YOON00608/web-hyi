@@ -5,14 +5,22 @@ public class Car {
 	
 	// 필드(멤버) : 클래스를 통해서 만들어진 객체들이 가질 정보
 	// 기본값을 지정할 수 있다.
-	int price;
-	String color;
-	String brand;
+	int price = 50000000;
+	String color = "gray";
+	String brand = "SSANGYONG";
+	
+	// 기본 생성자의 정의
+	public Car() {
+		
+		
+		
+	}
+	
 	
 	
 }
 
 // 하나의 파일에서 여러개의 클래스를 정의하는 것도 가능하다.
-class Truck{};
-
-class Bus{};
+//class Truck{};
+//
+//class Bus{};
