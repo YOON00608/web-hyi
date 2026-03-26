@@ -6,10 +6,17 @@ public class Student {
 	int age;
 	int score;
 	
-	
-	public Student(String n, int a) {
-		name = n;
-		age = a;
+	Student(String name, int age, int score){
+		this.name = name;
+		this.age = age;
+		this.score = score;
 	}
 	
+	
+	
+	
+
+
+	
 }
+
