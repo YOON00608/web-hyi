@@ -20,3 +20,5 @@ System.out.println ("Hello Java");
 printf("%d",100);
 ````
 ---
+# 변수
+
