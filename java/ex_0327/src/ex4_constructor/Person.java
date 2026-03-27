@@ -12,7 +12,7 @@ public class Person {
 	}
 	
 	public void introduce() {
-		System.out.println("안녕하세요. 저는 "+age+"살 "+name+"입니다.");
+		System.out.printf("안녕하세요. 저는 %d살 %s입니다.", age,name);
 	}
 		
 	
