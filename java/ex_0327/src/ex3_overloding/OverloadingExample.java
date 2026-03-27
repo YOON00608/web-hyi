@@ -15,4 +15,12 @@ public class OverloadingExample {
 		return x + y;
 	}
 	
+	public String plus(String x, String y) {
+		return x + y;
+	}
+	
+	public int plus(int x) {
+		return x * x;
+	}
+	
 }
