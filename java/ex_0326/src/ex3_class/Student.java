@@ -1,21 +1,13 @@
 package ex3_class;
 
 public class Student {
-
+	
+	// 필드(학생이 가져야 하는 정보)
 	String name;
 	int age;
 	int score;
 	
-	Student(String name, int age, int score){
-		this.name = name;
-		this.age = age;
-		this.score = score;
-	}
 	
-	
-	
-	
-
 
 	
 }
