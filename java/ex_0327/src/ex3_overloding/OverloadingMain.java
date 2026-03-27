@@ -6,9 +6,11 @@ public class OverloadingMain {
 		
 		int result = o.plus(1,2);
 		double result2 = o.plus(1.0, 2.0);
+		String result3 = o.plus("1", "2");
 		
 		System.out.println(result);
 		System.out.println(result2);
+		System.out.println(result3);
 	}
 	
 	
