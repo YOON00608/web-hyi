@@ -21,7 +21,7 @@ public class Ex1_print {
 		// 실수 : %f
 		// 문자형 : %c
 		// 문자열 : %s
-		// 논리형 : %d
+		// 논리형 : %b
 		
 		System.out.printf("제 이름은 %s, 나이는 %d세입니다.\n",name,age); 
 		
