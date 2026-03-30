@@ -8,6 +8,17 @@ public class Phone {
 	public String model;
 	public String color;
 	
+	// 생성자가 정의 되어있지 않으면 컴파일러가 기본생성자를 만들어준다.
+	// 사용자가 직접 정의하는 순간 기본생성자는 사라진다.
+	
+	// 생성자 생성
+	public Phone(String model, String color) {
+		this.model = model;
+		this.color = color;
+		System.out.println("Phone() 생성자 실행");
+	}
+	
+	
 	// 메서드
 	public void bell() {
 		System.out.println("벨이 울립니다.");
