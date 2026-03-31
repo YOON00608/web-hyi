@@ -9,8 +9,6 @@ public class Car {
 	}
 	
 	public void showCurrentGauge() {
-		System.out.println(gasGauge);
+		System.out.println("잔여 가스량 : " + gasGauge);
 	}
-	
-	
 }
