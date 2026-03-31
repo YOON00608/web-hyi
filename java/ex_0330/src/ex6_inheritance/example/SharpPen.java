@@ -2,9 +2,10 @@ package ex6_inheritance.example;
 
 public class SharpPen extends Pen {
 	
-	public int width;
+	public double width;
 	
 	public SharpPen(int width) {
+		super();
 		this.width = width;
 	}
 	
