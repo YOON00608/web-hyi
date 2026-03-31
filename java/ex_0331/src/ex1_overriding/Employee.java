@@ -1,6 +1,8 @@
 package ex1_overriding;
 
-public class Employee {
+import ex6_sealed.Person;
+
+public class Employee extends Person {
 	String name;
 	
 	public Employee(String name) {
