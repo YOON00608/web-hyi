@@ -1,8 +1,8 @@
 package ex5_polymorphism.exam04;
 
-public class Animal {
+// 추상 클래스
+abstract class Animal {
 	
-	public void sound() {
-		System.out.println("동물이 운다.");
-	}
+	// 추상메서드
+	public abstract void sound(); 
 }
