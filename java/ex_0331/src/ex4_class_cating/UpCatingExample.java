@@ -44,5 +44,11 @@ public class UpCatingExample {
 	
 	// 자식 객체를 부모타입으로 변환하면
 	// 자식 클래스에 정의한 멤버(필드,메서드)를 사용할 수 없다.
+	
+	((Child)parent).method3(); // parent 를 임시로 자식타입으로 변환
+	
+	Child c2 = (Child)parent;
+	c2.x = 100;
+	
 	}
 }
