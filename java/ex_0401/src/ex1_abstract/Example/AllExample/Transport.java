@@ -24,5 +24,5 @@ public abstract class Transport {
 		System.out.println(); // 각 교통수단의 결과 출력 뒤에는 한 줄을 띄우시오.
 	}
 
-		public abstract int calculatorFare(); // 추상메서드
+	public abstract int calculatorFare(); // 추상메서드
 }
