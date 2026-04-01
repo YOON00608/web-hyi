@@ -36,5 +36,4 @@ public interface RemoteControl {
 		System.out.println("설정모드로 접근");
 	}
 	
-	
 }
