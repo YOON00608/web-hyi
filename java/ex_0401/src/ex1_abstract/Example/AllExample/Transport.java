@@ -21,7 +21,6 @@ public abstract class Transport {
 		showName(); // showName()을 호출
 		System.out.println("거리 : " + distance + "km"); // 거리를 출력
 		System.out.println("총 요금 : " + calculatorFare() + "원"); // 요금 계산 : "총 요금 xx원" 형식으로 출력
-		System.out.println(); // 각 교통수단의 결과 출력 뒤에는 한 줄을 띄우시오.
 	}
 
 	public abstract int calculatorFare(); // 추상메서드
