@@ -1,0 +1,9 @@
+package ex3_interface.exam1;
+
+public class EmailNotification implements Notification{
+
+	@Override
+	public void send(String message) {
+		System.out.println("[EMAIL]" + message + "을 환영합니다.");
+	}
+}
