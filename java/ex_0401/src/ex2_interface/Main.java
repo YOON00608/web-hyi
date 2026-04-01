@@ -18,5 +18,14 @@ public class Main {
 				
 				RemoteControl.changeBattery();
 				
+				// 해당 인터페이스에서 구현한 메서드만 사용이 가능하다.
+				// rc.search("dcasc.com"); -> x
+				
+				Searchable searchable = new SmartTelevision();
+				searchable.search("https://www.youtube.com");
+				
+				SmartTelevision st = new SmartTelevision();
+				st.turnOff();
+				st.turnOn();
 		}
 }
