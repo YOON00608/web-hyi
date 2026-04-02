@@ -14,6 +14,5 @@ public class A {
 	public C getC() {
 		C c = new C();
 		return c;
-	}
-	
+	}	
 }
