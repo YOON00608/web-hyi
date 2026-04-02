@@ -19,6 +19,5 @@ public class Main {
 		C result = a.getC();
 		result.method();
 		
-		
 	}
 }
