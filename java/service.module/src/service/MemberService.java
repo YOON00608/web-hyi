@@ -8,6 +8,4 @@ public class MemberService {
 		System.out.println("회원 나이 : " + member.getAge());
 		System.out.println("회원 등록이 완료되었습니다.");
 	}
-	
-	
 }
