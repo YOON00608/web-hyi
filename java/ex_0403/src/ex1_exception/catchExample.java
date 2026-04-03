@@ -13,7 +13,7 @@ public class catchExample {
 			// 해당 타입의 예외가 발생하면 catch 블록이 실행된다.
 		} catch (NumberFormatException e) {
 			System.out.println("숫자로 변환할 수 없음 : " + e.getLocalizedMessage());
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
 			System.out.println("배열 인덱스가 초과됨 : " + e.getMessage());
 		
 			// 예외가 발생하면 catch 블록은 위에서부터 차례대로 검사 대상이 되는데,
