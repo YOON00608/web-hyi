@@ -18,6 +18,8 @@ public class ExceptionHandlingExample1 {
 			System.out.println(e.toString()); // e.toString() : 예외의 종류도 반환
 			e.printStackTrace(); // 예외가 어디서 발생했는지 추적한 내용까지 출력해준다.
 			System.out.println("에러가 발생했습니다.");
+		} finally {
+			System.out.println("무조건 실행됨");
 		}
 	}
 	
