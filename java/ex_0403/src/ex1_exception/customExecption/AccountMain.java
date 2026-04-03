@@ -9,7 +9,8 @@ public class AccountMain {
 		System.out.println("예금액 : " + a.getBalance());
 		
 		try {
-			a.withdraw(150000);
+			a.withdraw(30000);
+			System.out.println("예금액 : " + a.getBalance());
 		} catch (InsufficientException e) {
 			String message = e.getMessage();
 			System.out.println(message);
