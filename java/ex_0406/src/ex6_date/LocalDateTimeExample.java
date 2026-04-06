@@ -1,6 +1,7 @@
 package ex6_date;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 public class LocalDateTimeExample {
 	public static void main(String[] args) {
@@ -49,7 +50,41 @@ public class LocalDateTimeExample {
 		
 		System.out.println(dateTime2); // 2026-04-06T16:37
 		
+		// 날짜 비교 가능
+		// isbefore() : 앞선 시간인지 비교
+		// isAfter() : 뒤의 시간인지 비교
+		LocalDateTime meeting = LocalDateTime.of(2026, 4, 10, 14, 0);
 		
+		System.out.println(now.isBefore(meeting)); // true
+		System.out.println(now.isAfter(meeting)); //  false
+		
+		// 날짜의 특정 부분만 바꾸기
+		// 이미 만들어진 날짜/시간 객체에서
+		// 연도나 월, 일, 시를 바꾼 새로운 객체를 만들 수 있다.
+		LocalDateTime changed = now.withYear(2030)
+				.withMonth(12)
+				.withDayOfMonth(25)
+				.withHour(9);
+		System.out.println(now); // 원본은 안 바뀜 : 2026-04-06T16:46:38.496527300
+		System.out.println(changed); // 2030-12-25T09:46:38.496527300
+		
+		// 현재 시간이 09:00 ~ 18:00 사이인지 확인하여
+		// 예약 가능 여부를 출력하는 코드
+		
+		LocalTime now1 = LocalTime.now();
+		
+		LocalTime startTime = LocalTime.of(9, 0);
+		LocalTime endTime = LocalTime.of(18, 0);
+		
+		if(now1.isAfter(startTime) && now1.isBefore(endTime)) {
+			System.out.println("현재 시간 : " + now1);
+			System.out.println("예약이 가능합니다.");
+		} else {
+			System.out.println("현재 시간 : " + now1);
+			System.out.println("예약이 불가능합니다.");
+		}
+		
+	
 		
 		
 	}
