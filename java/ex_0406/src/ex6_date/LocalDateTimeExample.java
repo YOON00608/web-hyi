@@ -1,6 +1,7 @@
 package ex6_date;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 public class LocalDateTimeExample {
 	public static void main(String[] args) {
 		
@@ -33,5 +34,23 @@ public class LocalDateTimeExample {
 		System.out.println("1년 뒤 : " + now.plusYears(1)); //1년 뒤 : 2027-04-06T16:21:01.434818600
 		
 		// 빼기 : minusDay, minusMonth...
+		
+		// 문자열로 출력형식 바꾸기
+		DateTimeFormatter formatter = 
+				DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초");
+		
+		String result = now.format(formatter);
+		System.out.println(result); // 2026년 04월 06일 16시 33분 35초
+		
+		// 문자열을 LocalDateTime 으로 바꾸기
+		String str = "2026/04/06 16:37";
+		formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+		LocalDateTime dateTime2 = LocalDateTime.parse(str, formatter);
+		
+		System.out.println(dateTime2); // 2026-04-06T16:37
+		
+		
+		
+		
 	}
 }
