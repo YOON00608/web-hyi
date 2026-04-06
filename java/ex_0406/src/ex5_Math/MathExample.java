@@ -47,8 +47,8 @@ public class MathExample {
 		// pow() : 제곱
 		System.out.println(Math.pow(2,3)); // 8.0
 		
-		
-		
+		// sqrt() : 제곱근
+		System.out.println(Math.sqrt(9.0)); // 3.0
 		
 	}
 }
