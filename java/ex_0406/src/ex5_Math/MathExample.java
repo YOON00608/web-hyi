@@ -50,5 +50,28 @@ public class MathExample {
 		// sqrt() : 제곱근
 		System.out.println(Math.sqrt(9.0)); // 3.0
 		
+		// 10 ~ 20 사이의 랜덤정수를 출력하기
+		int num = (int) (Math.random() * 11) + 10;
+		System.out.println(num);
+		
+		// 두 점 사이의 거리를 구하세요
+		// x1 = -5, x2 = 8
+		
+		int x1 = -5;
+		int x2 = 8;
+		
+		double distance = Math.abs(x1 - x2);
+		System.out.println("두 점 사이의 거리 : " + distance); // 두 점 사이의 거리 : 13.0
+		
+		// 물건 53개를 한 박스에 8개씩 담으려고 한다.
+		// 필요한 박스의 개수를 구하세요.
+		
+		int total = 53;
+		int box = 8;
+		
+		int boxes = (int) Math.ceil((double)total / box);
+		System.out.println("필요한 박스 개수 : " + boxes); // 필요한 박스 개수 : 7
+		
+		
 	}
 }
