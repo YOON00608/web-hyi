@@ -21,5 +21,17 @@ public class LocalDateTimeExample {
 		System.out.println("시 : " + now.getHour()); // 시 : 16
 		System.out.println("분 : " + now.getMinute()); // 분 : 17
 		System.out.println("초 : " + now.getSecond()); // 초 : 36
+		
+		// 날짜와 시간 더하기 빼기
+		// 일 더하기 
+		System.out.println("10일 뒤 : " + now.plusDays(10)); // 10일 뒤 : 2026-04-16T16:19:07.542702300
+		
+		// 월 더하기
+		System.out.println("2달 뒤 : " + now.plusMonths(2)); // 2달 뒤 : 2026-06-06T16:20:16.300664500
+		
+		// 년 더하기
+		System.out.println("1년 뒤 : " + now.plusYears(1)); //1년 뒤 : 2027-04-06T16:21:01.434818600
+		
+		// 빼기 : minusDay, minusMonth...
 	}
 }
