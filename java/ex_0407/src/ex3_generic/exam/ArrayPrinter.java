@@ -1,6 +1,6 @@
 package ex3_generic.exam;
 
-public class ArrayPrinter<T> {
+public class ArrayPrinter {
 	// 배열을 외부에서 전달 받아 화면에 출력하는 기능을 가진
 	// printArray 제네릭 메서드 작성하기
 	
