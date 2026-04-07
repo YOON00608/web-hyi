@@ -36,8 +36,12 @@ public class NestingExample {
 		
 		Box<Pair<String,Integer>> box = new Box<>();
 		Pair<String,Integer> pair = new Pair<>("홍길동",30);
+		Pair<String,Integer> pair2 = new Pair<>("김길동",40);
 		
 		box.setValue(pair);
+		box.getValue().print();
+		
+		box.setValue(pair2);
 		box.getValue().print();
 		
 	}
