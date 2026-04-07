@@ -21,5 +21,15 @@ public class Main {
 		v3.setValue('A');
 		System.out.println(v3.getValue());
 	
+		//////
+		
+		Sample<String> sample = new Sample<String>();
+		sample.addElement("This is String", 5);
+		System.out.println(sample.getElement(5));
+		
+		
+		
+		
+		
 	}
 }
