@@ -8,20 +8,11 @@ public class ArrayPrinter {
 	// String [] name = {"김철수","이영희","박민수"};
 	// Integer[] nums = {10,20,30};
 	
-	public static void main(String[] args) {
-		
-		String [] name = {"김철수","이영희","박민수"};
-		Integer [] nums = {20,30,40};
-		
-		PrintArray(name);
-		PrintArray(nums);
-	
-	}
-		
-		public static <T> void PrintArray(T[] arr) {
-			for(int i = 0; i < arr.length; i++) {
-				System.out.println(arr[i]);
+		public <T> void printArray(T[] array) {
+			for(T t : array) {
+				System.out.println(t);
 			}
+		}
 		
-	}
+		
 }
