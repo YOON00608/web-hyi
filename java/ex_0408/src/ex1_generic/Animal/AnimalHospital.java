@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.Animal;
 
 public class AnimalHospital<T extends Animal> {
 	
