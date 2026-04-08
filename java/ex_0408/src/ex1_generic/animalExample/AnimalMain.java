@@ -1,4 +1,4 @@
-package ex1_generic.Animal;
+package ex1_generic.animalExample;
 
 public class AnimalMain {
 	public static void main(String[] args) {
