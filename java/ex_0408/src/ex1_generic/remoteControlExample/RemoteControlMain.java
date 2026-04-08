@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.remoteControlExample;
 
 public class RemoteControlMain {
 	public static void main(String[] args) {

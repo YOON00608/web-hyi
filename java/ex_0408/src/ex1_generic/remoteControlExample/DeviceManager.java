@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.remoteControlExample;
 
 // RemoteControl 인터페이스를 구현한 타입만 들어올 수 있다.
 public class DeviceManager<T extends RemoteControl> {

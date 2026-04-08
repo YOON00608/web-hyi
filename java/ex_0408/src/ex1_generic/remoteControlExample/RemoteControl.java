@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.remoteControlExample;
 
 public interface RemoteControl {
 	void turnOn();

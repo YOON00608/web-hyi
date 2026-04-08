@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.remoteControlExample;
 
 public class Audio implements RemoteControl {
 
