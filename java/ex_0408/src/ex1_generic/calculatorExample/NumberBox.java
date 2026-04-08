@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.calculatorExample;
 
 // T는  최소한 Number 타입의 기능을 가지고 있다고 보장할 수 있다.
 public class NumberBox<T extends Number> {

@@ -1,4 +1,4 @@
-package ex1_generic;
+package ex1_generic.calculatorExample;
 
 // 타입 한정 키워드 extends
 // T extends 제한타입
