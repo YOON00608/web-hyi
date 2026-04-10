@@ -60,12 +60,16 @@ public class Cart {
 		
 		// 6. 특정 상품 삭제
 		public void removeProduct(String name) {
-			for(int i = 0; i < products.size(); i++) {
-				if(products.get(i).getName().equals(name)) {
-					products.remove(i);
-					System.out.println(name + "상품이 삭제되었습니다.");
-					return;
+			// 제품이 있으면 삭제하고 "상품 삭제 완료"
+			for(Product p : products) {
+				if(p.getName().equals(name)) {
+					products.remove(p);
+					System.out.println("상품 삭제 완료");
+					break;
 				}
-			}
+			} 
+			// 제품이 없으면 "해당 제품이 없습니다."
+			System.out.println("해당 제품이 없습니다.");
+			
 		}
 }
