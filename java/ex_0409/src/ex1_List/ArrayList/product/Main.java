@@ -58,14 +58,6 @@ public class Main {
             }else {
             	System.out.println("잘못된 번호입니다. 다시 선택해주세요.");
             }
-            
-		
-            
-            
-            
-            
-            
-            
 		}
 	}
 }
