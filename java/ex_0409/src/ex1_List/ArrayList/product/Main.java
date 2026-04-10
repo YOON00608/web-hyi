@@ -26,7 +26,7 @@ public class Main {
             	System.out.print("상품명 : ");
             	String name = sc.nextLine();
             	
-            	System.out.print("가격 : ");
+            	System.out.print("가격 : ");       
             	int price = sc.nextInt();
             	
             	System.out.print("수량 : ");
@@ -34,12 +34,34 @@ public class Main {
             	
             	cart.addProduct(name, price, quantity);
             	
-            } else if(choice == 0) {
-            	System.out.println("프로그램 종료");
-            	break;
-            }
-		
             // 2. 장바구니 보기
+            }else if(choice == 2) {
+            	System.out.println("--- 장바구니 목록 ---");
+            	cart.printCart();
+            	
+            // 3. 총 금액 보기
+            }else if(choice == 3){
+            	System.out.println("--- 총 금액 --- ");
+            	cart.printTotalPrice();
+            	
+            // 4. 상품 삭제
+            }else if(choice == 4) {
+            	System.out.print("삭제할 상품명 입력");
+            	String name = sc.nextLine();
+            	cart.removeProduct(name);
+            	
+            // 0. 프로그램 종료
+            }else if(choice == 0) {
+            	System.out.println("프로그램을 종료합니다.");
+            	break;
+            	
+            // 그 외의 숫자 입력 시
+            }else {
+            	System.out.println("잘못된 번호입니다. 다시 선택해주세요.");
+            }
+            
+		
+            
             
             
             
