@@ -27,6 +27,12 @@ public class Cart {
 		
 		// 3. 장바구니 전체 출력
 		public void printCart() {
+			// 장바구니가 비어있으면 "장바구니가 비어있습니다." 출력하고 종료
+			if(products.size() == 0) {
+				System.out.println("장바구니가 비어있습니다.");
+				return;
+			}
+			// 모든 상품을 출력하기
 			for(Product p : products) {
 				System.out.println(p);
 			}
@@ -38,7 +44,7 @@ public class Cart {
 			for(Product p : products) {
 				total += p.getTotalPrice();
 			}
-			System.out.println("총 결제 금액 : " + total);
+			System.out.println("총 결제 금액 : " + total+"원");
 		}
 		
 		// 5. 특정 상품 수량 증가

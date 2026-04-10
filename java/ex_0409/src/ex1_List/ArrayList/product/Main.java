@@ -43,7 +43,6 @@ public class Main {
             }else if(choice == 3){
             	System.out.println("--- 총 금액 --- ");
             	cart.printTotalPrice();
-            	
             // 4. 상품 삭제
             }else if(choice == 4) {
             	System.out.print("삭제할 상품명 입력");
