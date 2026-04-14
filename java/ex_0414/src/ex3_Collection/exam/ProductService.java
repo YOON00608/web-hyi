@@ -11,7 +11,7 @@ public class ProductService {
 	// 1. 상품 등록
 	public void addProduct(Product product) {
 		// [1단계] 입력받은 상품의 코드가 이미 저장소에 있는지 확인
-		if(findByCode(product.getCode()) != null) {
+		if(findByCode(product.getCode()) != null) { // 반환값이 null이 아니다.
 		
 			// [2단계] 이미 있다면 경고 메시지를 보여주고 메서드를 종료
 			System.out.println("이미 존재하는 상품 코드입니다.");
