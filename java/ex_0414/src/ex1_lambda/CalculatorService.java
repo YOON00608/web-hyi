@@ -9,8 +9,18 @@ public class CalculatorService {
 		System.out.println("결과 : " + result);
 	}
 	
-	// 람다를 반환하는 메서드
-	
+	// 람다식을 반환하는 메서드
+	// 매개변수로 "add" 문자열이 넘어오면 두 수를 더해서 반환
+	// "sub" 문자열이 넘어오면 두 수를 빼서 반환
+	public Calculator getCalculator(String type) {
+		if(type.equals("add")){
+			return(a,b) -> a+b;
+		}else if(type.equals("sub")) {
+			return(a,b) -> a-b;
+		} else {
+			return null;
+		}
+	}
 	
 	
 	
