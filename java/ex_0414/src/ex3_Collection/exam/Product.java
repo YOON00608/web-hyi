@@ -2,16 +2,16 @@ package ex3_Collection.exam;
 
 public class Product {
 	
-	private String code;
-	private String name;
-	private int price;
-	private int stock;
+	private String code; // 제품코드
+	private String name; // 제품명
+	private int price; // 가격
+	private int stock; // 재고
 	
 	public Product(String code,String name,int price,int stock) {
-		this.code = code;
-		this.name = name;
-		this.price = price;
-		this.stock = stock;
+		this.code = code; 
+		this.name = name; 
+		this.price = price; 
+		this.stock = stock; 
 	}
 	
 	public void setCode(String code) {
@@ -48,7 +48,7 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "Product{code= " + code + ", name= " + name + ", price= " + price + ", stock=" + stock +"}";
+		return String.format("Product{code= %s, name= %s, price= %d, stock= %d}", code,name,price,stock);
 		
 	}
 }
