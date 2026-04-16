@@ -35,7 +35,7 @@ public class FileConverter {
 
     public static void main(String[] args) {
         FileConverter converter = new FileConverter();
-        converter.copy("wall.jpg", "wall_copy.jpg");
+        converter.copy("wall.jpg", "img/wall_copy.jpg");
     	
     	
     }
