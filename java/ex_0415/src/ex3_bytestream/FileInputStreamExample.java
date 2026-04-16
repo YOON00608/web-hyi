@@ -16,6 +16,8 @@ import java.io.IOException;
 public class FileInputStreamExample {
 	public static void main(String[] args) {
 		
+		byte[] read = new byte[100];
+		
 		// 파일에서 바이트 단위로 데이터를 읽어오는 클래스
 		// 파일이 없으면 예외가 발생할 수 있기 때문에 예외 처리를 해줘야 한다.
 		try {
@@ -23,8 +25,22 @@ public class FileInputStreamExample {
 			
 			// read()
 			// 파일에서 1바이트를 읽어서 int로 반환합니다.
+			// int로 반환하는 이유 : 파일의 끝(End Of File)을 표현하기 위해서이다. -> -1
+			int data;
+//			while((data =  fis.read()) != -1) {
+//				System.out.print((char)data);
+//			}
 			
-			int data = fis.read();
+			// read() 메서드는 1바이트씩 읽어들이지만,
+			// read(byte[] b)는 한 번에 읽어와서 배열에 집어넣는다.
+			fis.read(read);
+			
+			String result = new String(read);
+			System.out.println(result);
+			
+			// 스트림을 사용하고 나면 반드시 닫아야 한다.
+			fis.close();
+			
 		} catch (FileNotFoundException e) {
 			
 			e.printStackTrace();
@@ -32,6 +48,14 @@ public class FileInputStreamExample {
 			
 			e.printStackTrace();
 		}
+		
+		// read() 메서드
+		// 1바이트를 읽는다.
+		// 읽은 바이트 값을 int로 반환
+		// 더이상 읽을 데이터가 없으면 -1을 반환
+		
+		
+		
 		
 		
 	}
