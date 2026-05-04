@@ -442,6 +442,13 @@ select JOB_ID, avg(SALARY)
 from employees
 group by JOB_ID;
 
+-- 입사일 기준으로 요일별 사원 수 구하기
+select 
+DAYNAME(hire_date),
+count(*)
+from employees
+group by DAYNAME(hire_date);
+
 -- 부서 번호(DEPARTMENT_ID)가 60번인 부서원들만 대상으로,
 -- 입사 월(Month)별 사원 수를 조회하세요.
 select DATE_FORMAT(HIRE_DATE, '%c월'), count(*)
