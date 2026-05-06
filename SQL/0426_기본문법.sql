@@ -57,21 +57,3 @@ CREATE TABLE Comment (
     CONSTRAINT FK_COMMENT_USER FOREIGN KEY (user_ID)
     REFERENCES User(user_ID) 
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

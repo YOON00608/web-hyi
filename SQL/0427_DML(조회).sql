@@ -48,7 +48,7 @@ where last_name = 'Smith';
 -- film 테이블에서 대여 요금(rental_rate)가 2.99 이상이고
 -- 영화 길이가 120 이상인 영화를 조회하세요.
 select * from film
-where rental_rate >= 2.99 and length >= 120; 
+where rental_rate >= 2.99 and length >= 120;
 
 -- or(또는)
 -- film 테이블에서 영화 등급(rating)이 PG 이거나 G인 영화를 조회하세요.

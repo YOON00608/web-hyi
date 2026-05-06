@@ -206,9 +206,15 @@ from film_practice;
 select LPAD(right(LOWER(last_name),2), LENGTH(last_name) +2, '#')
 from customer_practice;
 
+select CONCAT(NAME,
+' -> ',
+CHAR_LENGTH(NAME),
+IFNULL(NICKNAME, '없음'), 
+' -> ',
+IFNULL(CHAR_LENGTH(NICKNAME),'0'))
+from MEMBER;
 
-
-
+select SUBSTRING_INDEX('A-B-C-D','-',3);
 
 
 
