@@ -419,10 +419,23 @@ where (department,salary) not in (
 );
 
 -- 각 부서에서 최고 급여를 받는 직원이 몇 명인지 조회하기
-select count(*)
+select department, count(*)
 from employee
 where (department,salary) in (
 	select department, max(salary)
 	from employee 
 	group by department
-);
+)
+group by department;
+
+
+-- 김철수와 같은 부서, 같은 급여를 받는 직원 조회하기
+select emp_name,department,salary 
+from employee
+where (department,salary) = (
+	select department, salary
+	from employee
+	where emp_name = '김철수'
+) and emp_name != '김철수';
+
+
