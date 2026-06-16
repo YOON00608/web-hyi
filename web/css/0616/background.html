@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경</title>
+    <style>
+        p {
+            border: 1px solid black;
+            width: 700px;
+            height: 500px;
+        }
+
+        /* 배경 스타일 주기 */
+        .b1 {
+            background-color: cornflowerblue;
+        }
+
+        /* 배경 이미지 */
+        .b2{
+            background-image: url(/img/dog.jpg);
+            background-repeat: repeat;}
+        
+        /* 배경 위치 */
+        .b3{
+            background-image: url(/img/dog.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* 배경 축약 속성 */
+        .b4{
+            background: skyblue url(/img/dog.jpg) no-repeat center;
+        }
+
+        /* 그라데이션 */
+        .d1 {
+            width: 700px;
+            height: 400px;
+            background: linear-gradient(pink, #fff);
+        }
+
+        .d2 {
+            width: 700px;
+            height: 400px;
+            background: linear-gradient(45deg, rgb(100, 181, 196), #fff);
+        }
+
+        .d3 {
+            width: 700px;
+            height: 400px;
+            background: linear-gradient(to bottom, rgb(82, 190, 124), #fff);
+        }
+    </style>
+</head>
+<body>
+    <p class="b1"></p>
+    <p class="b2"></p>
+    <p class="b3"></p>
+    <p class="b4"></p>
+
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+</body>
+</html>
