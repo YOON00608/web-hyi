@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>align_items</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .guide {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin: 24px 0 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-left: 6px solid #3498db;
+            padding-left: 10px;
+        }
+
+        .flex-demo {
+            display: flex;
+            border: 2px dashed #000;
+            background: #ecf0f1;
+            min-height: 140px;    
+            margin-bottom: 24px;
+            padding: 10px;
+        }
+
+        .item {
+            width: 100px;
+            margin: 10px;
+            color: white;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 6px;
+            font-weight: bold;
+            padding: 10px 0; 
+        }
+
+        .a { background: yellowgreen; }
+        .b { background: violet; }
+        .c { background: cornflowerblue}
+        .d { background: tomato}
+        .e { background: tan}
+        .f { background: orange}
+
+        .ai-stretch   { align-items: stretch; }
+        .ai-flex-start{ align-items: flex-start; }
+        .ai-center    { align-items: center; }
+        .ai-flex-end  { align-items: flex-end; }
+        .ai-baseline  { align-items: baseline; }
+    </style>
+</head>
+<body>
+    <h1>align-items</h1>
+
+    <h2>stretch (가능한 높이 전체를 늘림)</h2>
+    <section class="flex-demo ai-stretch">
+        <div class="item a">a</div>
+        <div class="item b">b</div>
+        <div class="item c">c</div>
+        <div class="item d">d</div>
+        <div class="item e">e</div>
+        <div class="item f">f</div>
+    </section>
+
+    <h2>flex-start (위쪽 정렬)</h2>
+    <section class="flex-demo ai-flex-start">
+        <div class="item a">a</div>
+        <div class="item b">b</div>
+        <div class="item c">c</div>
+        <div class="item d">d</div>
+        <div class="item e">e</div>
+        <div class="item f">f</div>
+    </section>
+
+    <h2>center (세로 가운데 정렬)</h2>
+    <section class="flex-demo ai-center">
+        <div class="item a">a</div>
+        <div class="item b">b</div>
+        <div class="item c">c</div>
+        <div class="item d">d</div>
+        <div class="item e">e</div>
+        <div class="item f">f</div>
+    </section>
+
+    <h2>flex-end (아래쪽 정렬)</h2>
+    <section class="flex-demo ai-flex-end">
+        <div class="item a">a</div>
+        <div class="item b">b</div>
+        <div class="item c">c</div>
+        <div class="item d">d</div>
+        <div class="item e">e</div>
+        <div class="item f">f</div>
+    </section>
+
+    <h2>baseline (문자의 밑줄선 기준으로 정렬)</h2>
+    <section class="flex-demo ai-baseline">
+        <div class="item a">a</div>
+        <div class="item b">b</div>
+        <div class="item c">c</div>
+        <div class="item d">d</div>
+        <div class="item e">e</div>
+        <div class="item f">f</div>
+    </section>
+</body>
+</html>

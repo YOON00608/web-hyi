@@ -1,0 +1,37 @@
+section{
+    border: 1px dashed black;
+    margin-bottom: 10px;
+}
+
+.box{
+    width: 100px;
+    /* height: 100px; */
+    text-align: center;
+    color: white;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.a{
+    background-color: yellowgreen;
+}
+
+.b{
+    background-color: violet;
+}
+
+.c{
+    background-color: cornflowerblue;
+}
+
+.d{
+    background-color: tomato;
+}
+
+.e{
+    background-color: tan;
+}
+
+.f{
+    background-color: orange;
+}

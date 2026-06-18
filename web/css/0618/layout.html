@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            text-align: center;
+        }
+
+        /* 헤더 */
+        header{
+            background: yellowgreen;
+            color: white;
+            padding: 20px;
+        }
+
+        /* 리스트 */
+        nav{
+            background: green;
+            color: white;
+            padding: 10px;
+        }
+
+        nav ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* 메인 */
+        main{
+            display: flex;
+            gap: 30px;
+            padding: 20px;
+            background: #e9e9e9;
+        }
+
+        section{
+            flex: 7;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        aside{
+            flex: 3;
+            background: #d6d6d6;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        footer{
+            background: slategrey;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flexbox Layout</h1>
+        <nav>
+            <ul>
+                <li>홈</li>
+                <li>공지사항</li>
+                <li>문의</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>메인 콘텐츠</h2>
+            <div>이 영역은 본문 내용을 표시하는 구역이다.</div>
+            <div>Flexbox를 이용해 왼쪽에 배치된다.</div>
+        </section>
+
+        <aside>
+            <h2>사이드바</h2>
+            <div>보조 정보나 공지사항을 표시하는 구역이다.</div>
+        </aside>
+    </main>
+
+    <footer>
+        <div>&copy; 2025 Flex Layout Practice</div>
+    </footer>
+
+</body>
+</html>
