@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout2</title>
+</head>
+        
+    <style>
+      
+      *{
+		  box-sizing: border-box;
+        /* 내용 + 패딩 + 테두리를 모두 포함한 값으로 취급하게 하는 속성
+        border-box를 쓰고 width : 300px을 하게 되면 300px 안에
+        내용 + 패딩 + 테두리가 모두 들어가도록 브라우저가 크기를 계산한다. */
+		  margin: 0;
+		  padding: 0;
+		}
+
+       body {
+		  font-family: system-ui, sans-serif;
+		  color: #363636;
+		}
+
+       .head,
+		.foot {
+		  padding: 16px;
+		  text-align: center;
+		  background: #eee;
+		}
+
+        .layout {
+		  display: flex;
+		  align-items: center;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		  padding: 16px;
+		  background: #f8f8f8;
+		  border: 1px solid #e5e8eb;
+		  border-radius: 8px;
+		}
+
+        .layout-text{
+            flex: 0 0 60%;
+        }
+
+        .layout-text h2 {
+		  margin-bottom: 6px; }
+
+        .layout-visual {
+		  display: flex;
+		  flex: 0 0 40%;
+		  justify-content: center;
+		  align-items: center;
+		  background: #e2e7e9;
+		  border-radius: 8px;
+		  height: 210px;
+		}
+
+        .features {
+		  max-width: 1000px;
+		  margin: 0 auto 20px;
+		  padding: 18px;
+		}
+
+        .features h2{
+            margin-bottom: 12px;
+        }
+
+        .features {
+		  display: flex;
+		  flex-wrap: wrap;
+		  gap: 16px;
+		}
+        
+		.feat {
+		  flex: 1 1 280px;
+		  border: 1px solid #e5e8eb;
+		  border-radius: 8px;
+		  background: #fff;
+		  padding: 16px;
+		}
+		
+
+    </style>
+
+<body>
+    <header class="head">
+        <h1>Brand Landing다</h1>
+    </header>
+
+<main>
+
+    <section class="layout">
+      <div class="layout-text">
+        <h2 id="layout-title">간결한 메시지로 주목을 끈다다</h2>
+        <p>핵심 가치와 행동 유도 문구를 짧고 명확하게 배치한다다</p>
+      </div>
+      <div class="layout-visual">
+        <span>640x360 자리다</span>
+      </div>
+    </section>
+
+    <section class="features">
+        <h2 id="f-title">핵심 기능이다</h2>
+      
+      <article class="feat">
+        <h3>간단하다</h3>
+        <p>짧은 설명이다</p></article>
+      
+        <article class="feat">
+        <h3>빠르다</h3>
+        <p>짧은 설명이다</p></article>
+      
+        <article class="feat">
+        <h3>확장된다</h3>
+        <p>짧은 설명이다</p></article>
+    </section>
+    
+</main>
+
+  <footer class="foot">
+    <small>© 2025 Split Hero이다</small>
+  </footer>
+
+</body>
+</html>

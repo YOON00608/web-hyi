@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 화면 실습</title>
+    <style>
+        
+        body{
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 800px;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo img{
+            width: 200px;
+            height: auto;
+        }
+
+        .login-area{
+            display: flex;
+            flex-direction:column ;
+        }
+
+       .row{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+       }
+
+       .input-group{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+       }
+
+       input[type="text"],
+       input[type="password"]{
+            width: 220px;
+            border: none;
+            border-bottom: 2px solid #999;
+            padding: 8px;
+            font-size: 15px;
+            outline: none;
+       }
+        
+       button{
+            width: 90px;
+            height: 90px;
+            border: none;
+            background-color: cornflowerblue;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 로고 영역 -->
+        <dic class="logo">
+            <img src="/css/0619/image/logo.png" alt="회사 로고">
+        </dic>
+        
+        <!-- 로그인 영역 -->
+        <div class="login-area">
+            
+            <div class="row">
+                
+                <!-- 데이터 입력 공간 -->
+                <div class="input-group">
+                    <input type="text" placeholder="아이디">
+                    <input type="password" placeholder="비밀번호">
+                </div>
+                
+                <button>로그인</button>
+            
+            </div>
+            <label class="save">
+                <input type="checkbox"> 아이디 저장
+            </label>
+        </div>
+    </div>
+</body>
+</html>

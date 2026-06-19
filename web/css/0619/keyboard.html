@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세 페이지</title>
+    <style>
+        body{
+            background: #faf8f7;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .product-container{
+            display: flex;
+            width: 800px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            gap: 20px;
+            text-align: left;
+            padding: 20px;
+        }
+
+        .product-image{
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .product-info h1{
+            font-size: 24px;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .price{
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff5a5f;
+            margin: 0 0 15px 0;
+        }
+
+        .description{
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+        }
+
+        .features{
+            list-style: none;
+            padding-left: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .features li{
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .btn-buy{
+            background: green;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <img src="/css/0619/image/keyboard.png" alt="무선 키보드 이미지" class="product-image">
+
+        <div class="product-info">
+            <h1>무선 키보드 </h1>
+
+            <p class="price">39,000원</p>
+
+            <p class="description">
+                가볍고 조용한 사무용 무선 키보드입니다.
+            </p>
+
+            <ul class="features">
+                <li>✔️ 무선 연결</li>
+                <li>✔️ 조용한 키감</li>
+                <li>✔️ 긴 배터리</li>
+            </ul>
+
+            <button class="btn-buy">구매하기</button>
+        </div>
+    </div>
+</body>
+</html>
