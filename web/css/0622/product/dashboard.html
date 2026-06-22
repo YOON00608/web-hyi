@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 대시보드</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI',  sans-serif;
+        }
+
+        body{
+            background-color: #ebf0f5;
+            padding: 40px 24px;
+        }
+
+        .container{
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .title{
+            font-size: 26px;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .dashboard-grid{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card{
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 32px 28px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-label{
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 16px;
+            font-weight: bold;
+        }
+
+        .card-value{
+            font-size: 32px;
+            color: black;
+            font-weight: bold;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">관리자 대시보드</h1>
+
+        <div class="dashboard-grid">
+            
+            <div class="card">
+                <div class="card-label">전체 수강생</div>
+                <div class="card-value">128명</div>
+            </div>
+
+            <div class="card">
+                <div class="card-label">오늘 출석률</div>
+                <div class="card-value">92%</div>
+            </div>
+
+            <div class="card">
+                <div class="card-label">미납 수강생</div>
+                <div class="card-value">7명</div>
+            </div>
+
+            <div class="card">
+                <div class="card-label">상담 예약</div>
+                <div class="card-value">12건</div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

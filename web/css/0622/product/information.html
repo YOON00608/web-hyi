@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학원 관리 시스템</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body{
+            background-color: #eee;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dashboard-container{
+            max-width: 1200px;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid#d1d5db;
+            border-radius: 12px;
+            overflow: hidden;
+
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        .header{
+            grid-column: 1 / span 2;
+            background-color: #212b36;
+            color: #fff;
+            padding: 24px 32px;
+        }
+
+        .header h1{
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .sidebar{
+            background-color: #fff;
+            padding: 32px 24px;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .sidebar h2{
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 24px;
+        }
+
+        .menu-list{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-item{
+            background-color: #f3f4f6;
+            color: #374151;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .main-content{
+            background-color: #ecf0f4;
+            padding: 32px;
+        }
+
+        .main-content h2{
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 24px;
+        }
+
+        .card-grid{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .task-card{
+            background-color: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 28px 24px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .task-card h3{
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 12px;
+        }
+
+        .task-card p{
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .footer{
+            grid-column: 1 / span 2;
+            background-color: #e5e7eb;
+            color: #374151;
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            border-top: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>학원 관리 시스템</h1>
+        </header>
+
+        <aside class="sidebar">
+            <h2>메뉴</h2>
+            <div class="menu-list">
+                <button class="menu-item">수강생 관리</button>
+                <button class="menu-item">출결 관리</button>
+                <button class="menu-item">상담 기록</button>
+                <button class="menu-item">수납 관리</button>
+                <button class="menu-item">통계</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h2>업무 현황</h2>
+
+            <div class="card-grid">
+
+            <div class="task-card">
+                <h3>수강생 관리</h3>
+                <p>신규 수강생 등록 및 정보를 조회합니다.</p>
+            </div>
+                
+            <div class="task-card">
+                <h3>출결 현황</h3>
+                <p>오늘의 출석, 지각, 결석 현황을 확인합니다.</p>
+            </div>
+
+            <div class="task-card">
+                <h3>상담 기록</h3>
+                <p>수강생별 상담 내용을 저장하고 관리합니다.</p>
+            </div>
+
+            <div class="task-card">
+                <h3>수납 현황</h3>
+                <p>수강료 납부 여부와 미납자를 확인합니다.</p>
+            </div>
+            
+            </div>
+        </main>
+
+        <footer class="footer">
+            관리자 전용 페이지
+        </footer>
+
+    </div>
+</body>
+</html>
