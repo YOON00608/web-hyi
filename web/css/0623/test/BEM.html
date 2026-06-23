@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM 실습</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body{
+            background-color: #f8f9fa;
+            padding: 30px;
+            color: #333;
+        }
+
+        .products{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-card{
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px 10px;
+        }
+
+        .product-card__image{
+            height: 130px;
+            background-color: #eee;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            text-align: center;
+            line-height: 130px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .product-card__title{
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-card__price{
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .product-card--soldout{
+            background-color: #f5f5f5;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <section class="products">
+            
+            <div class="product-card">
+                <div class="product-card__image">IMAGE</div>
+                <h2 class="product-card__title">기본 후드티</h2>
+                <p class="product-card__price">39,000원</p>
+            </div>
+
+            <div class="product-card product-card--soldout">
+                <div class="product-card__image">IMAGE</div>
+                <h2 class="product-card__title">레이어드 맨투맨[품절]</h2>
+                <p class="product-card__price ">29,000원</p>
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>

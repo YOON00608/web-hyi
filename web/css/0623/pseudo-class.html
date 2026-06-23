@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사 클래스</title>
+    <style>
+        .h-btn{
+            background: skyblue;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* 버튼에 마우스를 올린 상태 */
+        .h-btn:hover{
+            background: orange;
+        }
+
+        /* 버튼을 누른 상태 */
+        .h-btn:active{
+            background-color: red;
+        }
+
+        input{
+            border: 2px solid gray;
+            padding: 10px;
+            outline: none;
+        }
+
+        /* 입력창을 클릭 했을 때 */
+        input:focus{
+            border: 2px solid blue;
+        }
+
+        /* 아직 방문하지 않은 상태 */
+        a:link{
+            color: #0099ff;
+        }
+
+        /* 방문한 상태 */
+        a:visited{
+            color: #e74c3c;
+        }
+
+        /* + : 인접한 태그를 선택 */
+        input:checked + label {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        input:enabled{
+            background-color: #ecf0f1;
+        }
+
+        input:disabled{
+            background-color: #bdc3c7;
+        }
+
+        input:required{
+            border: 2px solid orange;
+        }
+
+       
+        input:valid{
+            border-color: green;
+        }
+
+         /* 잘못된  값이 입력된 상태 */
+        input:invalid{
+            border-color: red;
+        }
+
+        /* (ul의) li중에 첫 번째 */
+        ul li:first-child{
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        ul li:last-child{
+            font-weight: bold;
+            color: red;
+        }
+
+        /* 특정 번호 직접 지정하기 */
+        ul li:nth-child(3){
+            font-weight: bold;
+            color: green;
+        }
+
+        p:first-of-type{
+            color: #16a085;
+            font-weight: bold;
+        }
+
+        /* p:last-of-type{
+            color: tan;
+            font-weight: bold;
+        } */
+
+        p:nth-of-type(3){
+            color: tomato;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        p:not(.highlight){
+            color: #7f8c8d;
+        }
+
+        p:lang(en){
+            font-style: italic;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <!-- 동적 의사 클래스 : 사용자의 동작에 따라 상태가 바뀌는 의사 클래스 -->
+    <!-- ※의사 클래스 : 특정 상태에 있는 요소를 선택하는 CSS 선택자 -->
+    
+    <!-- hover : 마우스를 올렸을 때 -->
+    <button class="h-btn">버튼</button>
+    <br><br>
+    <input type="text" placeholder="이름 입력">
+    <br><br>
+    <a href="#">Example 링크</a>
+
+    <hr>
+    <h2>상태 의사 클래스</h2>
+    <input type="checkbox" id="chk1">
+    <label for="chk1">동의합니다.</label>
+
+    <br><br>
+    <input type="text" placeholder="입력 가능">
+    <br><br>
+    <input type="text" disabled placeholder="입력 불가능">
+    <br><br>
+    <input type="text" required placeholder="필수 사항">
+    <br><br>
+    <input type="email" placeholder="이메일 입력">
+    <hr>
+
+    <h2>구조 의사 클래스</h2>
+    <ul>
+        <li>첫 번째 항목</li>
+        <li>두 번째 항목</li>
+        <li>세 번째 항목</li>
+        <li>네 번째 항목</li>
+        <li>다섯 번째 항목</li>
+    </ul>
+
+    <p>첫 번째 문단</p>
+    <p>두 번째 문단</p>
+    <p>세 번째 문단</p>
+    <p>네 번째 문단</p>
+
+    <div>이것은 div 문단</div>
+    <hr>
+    <h2>기타 의사 클래스</h2>
+    <!-- 특정 조건이나 언어 설정 등에 따라 선택할 수 있는 기타 의사 클래스
+        :not(selector): 괄호 안의 선택자를 제외한 나머지를 선택
+        :lang(language) : 지정된 언어 속성을 가진 요소 선택 -->
+        <p>이 문장은 기본 스타일입니다.</p>
+        <p class="highlight">이 문장은 강조 문장입니다.</p>
+        <p lang="en">This is an English sentence</p>
+</body>
+</html>

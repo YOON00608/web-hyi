@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜딩 실습</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'Segoe UI', sans-serif;
+            color: #475569;
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* 기본 스타일 지정 */
+
+        ul, li{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button{
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* gnb(상단 바) 영역 디자인 */
+        .gnb{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .gnb__logo{
+            font-size: 20px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .gnb__menu{
+            display: flex;
+            gap: 30px;
+        }
+
+        .gnb__link{
+            font-size: 14px;
+            font-weight: bold;
+            color: #64748b;
+        }
+
+        .gnb__link:hover{
+            color: #3498db;
+        }
+
+        /* 제품 기능 색 고정 */
+        .gnb__link--active{
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .gnb__action-btn{
+            padding: 8px 16px;
+            font-size: 14px;
+            border: 1px solid #3498db;
+            color: #3498db;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* hero 영역 디자인 */
+
+        .hero{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #fff;
+        }
+
+        .hero__title{
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f172a;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+
+        .hero__description{
+            font-size: 16px;
+            color: #64748b;
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+
+        .hero__actions{
+            display: flex;
+            gap: 12px;
+        }
+
+        .hero__btn{
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .hero__btn:hover{
+            opacity: 0.9;
+        }
+
+        .hero__btn--primary{
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .hero__btn--secondary{
+            background-color: #f1f5f9;
+            color: #475569;
+        }
+
+        /* features 영역 디자인 */
+        .features{
+            background-color: #f8fafc;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .features__title{
+            font-size: 24px;
+            color: #0f172a;
+            margin-bottom: 48px;
+            text-align: center; 
+        }
+
+        .features__grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+        
+        .features__item{
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .features__icon{
+            font-size: 24px;
+            background-color: #f8fafc;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .features__subject{
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .features__text{
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Pricing 영역 디자인 */
+
+        .pricing{
+            background-color: #fff;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pricing__title{
+            font-size: 28px;
+            color: #0f172a;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .pricing__container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .pricing__card{
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            position: relative;
+        }
+
+        .pricing__card--popular{
+            border: 2px solid #3498db;
+            border-radius: 12px;
+        }
+
+        .pricing__plan-name{
+            font-size: 16px;
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .pricing__price{
+            font-size: 36px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .pricing__benefit-list{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pricing__benefit-item{
+            font-size: 14px;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing__benefit-item::before{
+            content: "✓";
+            color: #888888;
+            font-weight: bold;
+        }
+
+        .pricing__action-btn{
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #cbd5e1;
+            color: #64748b;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .pricing__action-btn--highlight{
+            background-color: #3498db;
+            border-color: #3498db;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="gnb">
+        <div class="gnb__logo">CloudOps</div>
+        <ul class="gnb__menu">
+            <li><a href="#" class="gnb__link gnb__link--active">제품 기능</a></li>
+            <li><a href="#" class="gnb__link">사용법</a></li>
+            <li><a href="#" class="gnb__link">가격정책</a></li>
+            <li><a href="#" class="gnb__link">고객센터</a></li>
+        </ul>
+        <li><a href="#" class="gnb__action-btn">무료 시작하기</a></li>
+    </nav>
+
+    <header class="hero">
+        <h1 class="hero__title">클라우드 인프라 관리를<br> 더 안전하고 완벽하게</h1>
+        <p class="hero__description">복잡한 설정 없이 몇 번의 클릭만으로 모니터링, 보안, 배포를 자동화하세요.
+            전 세계 1만 개 이상의 개발팀이 신뢰합니다.</p>
+        <div class="hero__actions">
+            <button class="hero__btn hero__btn--primary">도입 문의하기</button>
+            <button class="hero__btn hero__btn--secondary">데모 보기</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="features">
+            
+            <h2 class="features__title">비즈니스를 가속화하는 핵심 기능</h2>
+           
+            <div class="features__grid">
+                
+                <div class="features__item">
+                    <div class="features__icon">⚡</div>
+                    <h3 class="features__subject">초고속 실시간 모니터링</h3>
+                    <p class="features__text">그래픽 급증이나 서버 지연 현상을 1초 미만의 지연 시간 내로
+                            완벽히 감지하여 관리자에게 즉시 전송합니다.</p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon">🛡️</div>
+                    <h3 class="features__subject">엔터프라이즈급 보안</h3>
+                    <p class="features__text">모든 데이터 이동 경로는 종단간 암호학(E2EE)처리 되며,
+                            다중 인증 표준 프로토콜을 기본 제공합니다. </p>
+                </div>
+
+                <div class="features__item">
+                    <div class="features__icon">📊</div>
+                    <h3 class="features__subject">인텔리전트 통계 리포트</h3>
+                    <p class="features__text">AI 기반 분석 엔진이 지난 한 달간의 인프라 효율성을 평가하여
+                            비용 절감 제안서를 자동 생성합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <h2 class="pricing__title">합리적인 선택, 투명한 요금제</h2>
+            <div class="pricing__container">
+                
+                <div class="pricing__card">
+                    <div class="pricing__plan-name">스타트업 플랜</div>
+                    <div class="pricing__price">₩29,000</div>
+                    <ul class="pricing__benefit-list">
+                        <li class="pricing__benefit-item">최대 5명의 팀원 초대</li>
+                        <li class="pricing__benefit-item">실시간 모니터링 대시보드</li>
+                        <li class="pricing__benefit-item">데이터 보존 기간 14일</li>
+                    </ul>
+                    <button class="pricing__action-btn">시작하기</button>
+                </div>
+
+                <div class="pricing__card pricing__card--popular">
+                    <div class="pricing__plan-name">프로페셔널 플랜</div>
+                    <div class="pricing__price">₩79,000</div>
+                    <ul class="pricing__benefit-list">
+                        <li class="pricing__benefit-item">팀원 수 제한 없음</li>
+                        <li class="pricing__benefit-item">고급 보안 가이드라인 매칭</li>
+                        <li class="pricing__benefit-item">데이터 보존 기간 90일</li>
+                        <li class="pricing__benefit-item">24/7 우선 기술 지원</li>
+                    </ul>
+                    <button class="pricing__action-btn pricing__action-btn--highlight">추천 플랜 선택</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

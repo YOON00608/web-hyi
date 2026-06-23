@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유저 관리 대시보드</title>
+    <style>
+
+        body{
+            padding: 30px;
+        }
+
+        .user-list{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+        }
+
+        .card{
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .user-name{
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card:first-child{
+            border: 2px solid #3498db;
+        }
+
+        .card:nth-child(3){
+            background-color: #fffcf0;
+        }
+
+        .rolo-badge{
+            display: inline-block;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .rolo-badge.admin{
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .rolo-badge.member{
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        .card:hover{
+            background-color: #e9ecef;
+            cursor: pointer;
+        }
+
+       input[type="checkbox"]:checked + label{
+            color: #9b59b6;
+            font-weight: bold;
+       }
+
+       .select-box{
+            margin-top: 10px;
+       }
+
+    </style>
+</head>
+<body>
+    <dic class="user-list">
+
+        <h1>유저 관리 대시보드</h1>
+
+        <div class="card">
+            <h3 class="user-name">홍길동 대리</h3>
+            <span class="rolo-badge admin">관리자</span>
+            <div class="select-box">
+                <input type="checkbox" id="user-1">
+                <label for="user-1">현재 작업 멤버로 선택</label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="user-name">이영희 사원</h3>
+            <span class="rolo-badge member">일반 회원</span>
+            <div class="select-box">
+                <input type="checkbox" id="user-2">
+                <label for="user-2">현재 작업 멤버로 선택</label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="user-name">김철수 사원</h3>
+            <span class="rolo-badge member">일반 회원</span>
+            <div class="select-box">
+                <input type="checkbox" id="user-3">
+                <label for="user-3">현재 작업 멤버로 선택</label>
+            </div>
+        </div>
+
+    </dic>
+</body>
+</html>
