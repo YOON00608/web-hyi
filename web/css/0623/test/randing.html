@@ -55,12 +55,12 @@
 
         .gnb__menu{
             display: flex;
-            gap: 30px;
+            gap: 35px;
         }
 
         .gnb__link{
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 500;
             color: #64748b;
         }
 
@@ -68,19 +68,20 @@
             color: #3498db;
         }
 
-        /* 제품 기능 색 고정 */
         .gnb__link--active{
             color: #3498db;
-            font-weight: bold;
+            font-weight: 700;
         }
 
-        .gnb__action-btn{
+        .gnb__btn{
             padding: 8px 16px;
             font-size: 14px;
             border: 1px solid #3498db;
             color: #3498db;
             border-radius: 6px;
-            font-weight: bold;
+            font-weight: 600;
+            /* transparent : 투명 속성 */
+            background-color: transparent;
         }
 
         /* hero 영역 디자인 */
@@ -95,29 +96,30 @@
         }
 
         .hero__title{
-            font-size: 24px;
+            font-size: 36px;
             font-weight: bold;
             color: #0f172a;
             line-height: 1.4;
             margin-bottom: 24px;
         }
 
-        .hero__description{
+        .hero__desc{
             font-size: 16px;
             color: #64748b;
             max-width: 600px;
             margin-bottom: 32px;
         }
 
-        .hero__actions{
+        .hero__cta-group{
             display: flex;
+            justify-content: center;
             gap: 12px;
         }
 
         .hero__btn{
             padding: 14px 28px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             border-radius: 8px;
         }
 
@@ -154,10 +156,9 @@
         .features__grid{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            justify-content: center;
             gap: 30px;
-            width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .features__item{
@@ -169,7 +170,7 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
         }
 
         .features__icon{
@@ -216,7 +217,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
             width: 100%;
             max-width: 800px;
         }
@@ -291,30 +292,35 @@
     </style>
 </head>
 <body>
+
+    <!-- 상단 바 -->
     <nav class="gnb">
         <div class="gnb__logo">CloudOps</div>
         <ul class="gnb__menu">
-            <li><a href="#" class="gnb__link gnb__link--active">제품 기능</a></li>
+            <li><a href="#" class="gnb__link gnb__link--active">제품기능</a></li>
             <li><a href="#" class="gnb__link">사용법</a></li>
             <li><a href="#" class="gnb__link">가격정책</a></li>
             <li><a href="#" class="gnb__link">고객센터</a></li>
         </ul>
-        <li><a href="#" class="gnb__action-btn">무료 시작하기</a></li>
+        <li><button class="gnb__btn">무료 시작하기</button></li>
     </nav>
 
+    <!-- 헤더 -->
     <header class="hero">
-        <h1 class="hero__title">클라우드 인프라 관리를<br> 더 안전하고 완벽하게</h1>
-        <p class="hero__description">복잡한 설정 없이 몇 번의 클릭만으로 모니터링, 보안, 배포를 자동화하세요.
+        <h1 class="hero__title">클라우드 인프라 관리를<br>더 안전하고 완벽하게</h1>
+        <p class="hero__desc">복잡한 설정 없이 몇 번의 클릭만으로 모니터링, 보안, 배포를 자동화하세요.
             전 세계 1만 개 이상의 개발팀이 신뢰합니다.</p>
-        <div class="hero__actions">
+        <div class="hero__cta-group">
             <button class="hero__btn hero__btn--primary">도입 문의하기</button>
             <button class="hero__btn hero__btn--secondary">데모 보기</button>
         </div>
     </header>
 
+    <!-- 메인 -->
     <main>
+
+        <!-- 소개 section -->
         <section class="features">
-            
             <h2 class="features__title">비즈니스를 가속화하는 핵심 기능</h2>
            
             <div class="features__grid">
@@ -337,11 +343,13 @@
                     <div class="features__icon">📊</div>
                     <h3 class="features__subject">인텔리전트 통계 리포트</h3>
                     <p class="features__text">AI 기반 분석 엔진이 지난 한 달간의 인프라 효율성을 평가하여
-                            비용 절감 제안서를 자동 생성합니다.
-                    </p>
+                            비용 절감 제안서를 자동 생성합니다.</p>
                 </div>
+
             </div>
         </section>
+
+        <!-- 요금제 선택 section -->
 
         <section class="pricing">
             <h2 class="pricing__title">합리적인 선택, 투명한 요금제</h2>
