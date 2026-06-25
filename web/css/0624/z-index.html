@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+
+        .red{
+            position: absolute;
+            background-color: red;
+            left: 100px;
+            top: 100px;
+            z-index: 2;
+        }
+
+        .blue{
+            position: absolute;
+            background-color: blue;
+            left: 170px;
+            top: 170px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- z-index : 요소가 서로 겹쳤을 때 어떤 요소를 위에 표현할 것인지 정하는 CSS -->
+    <!--숫자가 낮을수록 밑에 깔린다. / 숫자가 클수록 위에 올라온다. -->
+    <!-- position 속성이 지정된 요소에서만 동작한다. -->
+    <!-- z-index값을 작성하지 않으면 html에서 나중에 작성된 요소가 위로 올라온다. -->
+    <div class="red"></div>
+    <div class="blue"></div>
+</body>
+</html>
