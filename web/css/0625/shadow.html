@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그림자 효과</title>
+    <style>
+        body{
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .box{
+            width: 200px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: skyblue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+
+            /* box-shadow : x축 y축 흐림정도 퍼짐정도(생략가능) 색상 */
+            /* rgba(R,G,B,투명도 0 ~ 1 사이) */
+            /* inset: 그림자가 안쪽으로 생김 */
+            box-shadow: 5px 5px 10px rgba(0, 0, 255, 0.2);
+        }
+
+        /* inset을 활용하여 입력창이나 눌린 버튼 같은 느낌을 만들 수 있다. */
+        .input-box{
+            background-color: white;
+            border: 1px solid #ccc;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .input-box:active{
+            box-shadow: inset 5px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card{
+            width: 340px;
+            padding: 24px;
+            background-color: white;
+            border-radius: 16px;
+            
+            box-shadow: 
+            0 2px 6px rgba(0, 0, 0, 0.08),
+            0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .title{
+            font-size: 48px;
+            color: white;
+            background-color: #555;
+            padding: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 1);
+        }
+    </style>
+</head>
+<body>
+    <!-- text-shadow : 글자 그림자 -->
+    <!-- box-shadow : 박스, 카드, 버튼 요소에 그림자 -->
+     <div class="box">기본 그림자</div>
+
+     <div class="input-box">안쪽 그림자</div>
+
+     <!-- 자연스러운 카드 그림자 -->
+     <div class="card">
+        <h2>프리미엄 카드</h2>
+        <p>두 개의 그림자를 겹쳐서 더 자연스럽게 만들었다.</p>
+     </div>
+
+     <hr>
+
+     <h1 class="title">CSS TEXT SHADOW</h1>
+</body>
+</html>

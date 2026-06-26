@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 애니메이션</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: #f9f2f5;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border-radius: 8px;
+            margin: 40px auto;
+
+            transition: all 0.5s ease;
+            /* property :어떤 속성을 변화시킬지 */
+            /* duration : 몇 초 동안 변화할지 */
+            /* timing-function : 변화 속도 곡선
+                ㄴ ease : 천천히 시작 -> 빨라짐 -> 천천히 끝남
+                ㄴ liner : 일정한 속도
+                ㄴ ease-in : 천천히 시작
+                ㄴ ease-out : 천천히 끝남
+                ㄴ ease-in-out : 천천히 시작 -> 천천히 끝남 */
+            /* delay : 몇 초 뒤 시작할지 */
+
+            
+        }
+
+        .box:hover{
+            width: 200px;
+            background-color: orange;
+        }
+
+        .btn{
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: royalblue;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 
+                background-color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .btn:hover{
+            background-color: tomato;
+            transform: translateY(-5px);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CSS Transition</h1>
+    <p>마우스를 박스 위에 올려보세요</p>
+    <div class="box"></div>
+    
+    <hr>
+
+    <button class="btn">버튼</button>
+</body>
+</html>

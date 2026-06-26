@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컨테이너 쿼리</title>
+    <style>
+
+         body {
+            margin: 0; 
+            font-family: system-ui, sans-serif;
+            padding: 20px;
+        }
+        
+        .outer {
+            border: 3px solid #2980b9;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .inner {
+            background: skyblue;
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: white;
+        }
+
+        /* 미디어 쿼리: 브라우저 전체 폭 기준 */
+         @media (min-width: 700px) {
+            .inner {
+                background: tomato;
+                font-size: 22px;
+            }
+        }
+
+        /* 컨테이너 쿼리: .outer 요소 폭 기준 */
+        .outer { container-type: inline-size; }
+        /* inline-size; : 가로너비 기준으로 하겠다.
+            normal : 기본값, 크기 쿼리 불가
+            size : 가로와 세로 크기 모두를 기준으로 삼는다. */
+       
+            @container (min-width: 500px) {
+            .inner {
+                background: tan;
+                font-size: 20px; 
+            }
+        }
+
+        /* 컨테이너 쿼리 vs 미디어 쿼리
+            미디어 쿼리
+            - 브라우저의 화면크기를 기반으로 스타일
+            - 화면 전체의 레이아웃을 바꿀 때
+            컨테이너 쿼리
+            - 부모 요소의 크기를 기반으로 스타일
+            - 컴포넌트 내부의 스타일을 변경
+            - 카드, 위젯, 사이드바, 대시보드 등등... */
+
+            .layout{
+                display: flex;
+                gap: 20px;
+            }
+
+            .area{
+                padding: 20px;
+                background-color: #eee;
+                border: 1px solid #ddd;
+            }
+
+            .narrow{
+                width: 300px;
+            }
+
+            .wide{
+                width: 700px;
+            }
+
+            /* 부모를 컨테이너로 지정 */
+            .card-wrap{
+                container-type: inline-size;
+            }
+
+            .card{
+                border: 1px solid #ccc;
+                border-radius: 12px;
+                overflow: hidden;
+                background-color: white;
+            }
+
+            .card-content img{
+                width: 100%;
+                display: block;
+                
+            }
+
+            .card-content{
+                padding: 16px;
+            }
+
+            .card-content h2{
+                margin: 0 0 8px;
+                font-size: 20px;
+            }
+
+            .card-content p{
+                margin: 0 0 16px;
+                color: #555;
+            }
+
+            button{
+                padding: 10px 14px;
+                border-radius: 6px;
+                background-color: #333;
+                color: white;
+                cursor: pointer;
+            }
+
+            button:hover{
+                opacity: 0.9;
+            }
+            
+            @container(min-width : 500px){
+                .card{
+                    display: flex;
+                    align-items: center;
+                }
+
+                .card-content h2{
+                    font-size: 28px;
+                }
+
+                .card-content img{
+                    width: 220px;
+                    height: 180px;
+                    object-fit: cover;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">컨테이너 쿼리 vs 미디어 쿼리</div>
+    </div>
+
+    <hr>
+
+    <div class="layout">
+        
+        <section class="area narrow">
+            <div class="card-wrap">
+                <article class="card">
+                    <img src="/img/dog.jpg">
+                    <div class="card-content">
+                        <h2>무선 키보드</h2>
+                        <p>조용한 타건감과 긴 배터리 시간을 제공하는 키보드</p>
+                        <button>구매하기</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="area wide">
+            <div class="card-wrap">
+                <article class="card">
+                    <img src="/img/dog.jpg">
+                    <div class="card-content">
+                        <h2>무선 키보드</h2>
+                        <p>조용한 타건감과 긴 배터리 시간을 제공하는 키보드</p>
+                        <button>구매하기</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

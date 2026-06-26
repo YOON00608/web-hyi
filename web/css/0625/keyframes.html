@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키프레임 애니메이션</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f7f8fa;
+            gap: 30px;
+        }
+
+        .box{
+            width: 120px;
+            height: 120px;
+            border-radius: 12%;
+            background-color: royalblue;
+
+            animation: bounceColor 2.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes bounceColor{
+            0% {transform: translateY(0); background:royalblue;}
+            50% {transform: translateY(-24px); background:orange;}
+            100% {transform: translateY(0); background:purple;}
+        }
+
+        /* ---------- */
+
+        .spinner{
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 6px solid #e5e7eb;
+            border-top-color: #3b82f6;
+
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin{
+            to{
+                transform: rotate(360deg)
+            } 
+        }
+
+        /* ---------- */
+
+        .badge{
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background-color: #8e44ad;
+            color: white;
+            font-weight: 700;
+            /* steps(단계수, 위치) : 애니메이션을 일정한 단계로 끊어 움직이게 만드는 타이밍 함수 */
+            animation: hop 0.8s steps(4,end) infinite alternate;
+        }
+
+        @keyframes hop{
+            from{
+                transform: translateX(0);
+            }
+
+            to{
+                transform: translateX(80px);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>바운스 박스</h2>
+    <div class="box"></div>
+
+    <hr>
+
+    <h2>스피너</h2>
+    <div class="spinner"></div>
+
+    <hr>
+
+    <h2>step 애니메이션</h2>
+    <span class="badge">step</span>
+</body>
+</html>

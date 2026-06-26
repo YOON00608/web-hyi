@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호텔 페이지 만들기</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #333
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* header 영역 */
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            height: 70px;
+            padding: 0 50px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logo{
+            font-size: 24px;
+            font-weight: bold;
+            color: #2b8a3e;
+            cursor: pointer;
+        }
+
+        .nav-menu{
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu li{
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        /* 메뉴 hover 애니메이션 */
+        .nav-menu li:hover{
+            color: #2b8a3e;
+            transform: scale(1.12);
+        }
+
+        /* 검색 영역 */
+        .search-section{
+            width: 100%;
+            padding: 60px 20px;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            background: #d1f5ea;
+        }
+        
+        .search-section h1{
+            font-size: 35px;
+            margin-bottom: 12px;
+            color: #212529;
+            font-weight: 700;
+        }
+
+        .search-section p{
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        /* 검색 박스 스타일 */
+        .search-box{
+            display: flex;
+            width: 100%;
+            max-width: 800px;
+            gap: 10px;
+            background-color: #fff;
+            padding: 8px 8px 8px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+        /* 검색 박스 hover */
+        .search-box:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .search-box input{
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #eee;
+            outline: none;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333333;
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* input focus */
+        .search-box input:focus{
+            box-shadow: 0 0 0 3px rgba(43, 138, 62, 0.2);
+        }
+
+        .search-box button{
+            background-color: #0d7c66;
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+        }
+
+        .search-box button:hover {
+            background-color: #0a5f4e;
+        }
+
+        /* 호텔 목록 영역 */
+        .hotel-section{
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hotel-card{
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .hotel-card:hover{
+            border-color: #0d7c66;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            transform: translateX(8px);
+        }
+
+        .hotel-img-wrapper{
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .hotel-img-wrapper img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .hotel-card:hover .hotel-img-wrapper img{
+            transform: scale(1.1);
+        }
+
+        /* 오른쪽 : 호텔 정보 영역 */
+        .hotel-info{
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 24px;
+        }
+
+        .hotel-name{
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .hotel-desc{
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .hotel-cta{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+        
+        .hotel-price{
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .booking-btn{
+            background-color: #f0f0f0;
+            color: #333;
+            border: none;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .booking-btn:hover{
+            background-color: #0d7c66;
+            color: #fff;
+            transform: translateX(8px);
+        }
+
+        /* footer 영역 */
+        footer{
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Hotel Finder</div>
+        <ul class="nav-menu">
+            <li>호텔검색</li>
+            <li>예약확인</li>
+            <li>고객센터</li>
+        </ul>
+    </header>
+
+    <main>
+            
+        <section class="search-section">
+            <h1>나에게 맞는 호텔을 찾아보세요</h1>
+            <p>지역명이나 호텔명을 입력하면 추천 숙소를 확인할 수 있습니다.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="예: 제주,부산,강릉">
+                    <button>검색하기</button>
+                </div>
+        </section>
+
+        <section class="hotel-section">
+
+            <!-- 카드 1 -->
+            <div class="hotel-card">
+                <div class="hotel-img-wrapper">
+                    <img src="https://picsum.photos/800/450?1" alt="오션뷰 호텔">
+                </div>
+                <div class="hotel-info">
+                    
+                    <div class="hotel-text">
+                        <div class="hotel-name">오션뷰 호텔</div>
+                        <div class="hotel-desc">바다가 보이는 객실과 조용한 휴식 공간을 제공하는 호텔입니다.
+                            가족 여행과 커플 여행 모두에게 적합합니다.</div>
+                    </div>
+
+                    <div class="hotel-cta">
+                        <div class="hotel-price">1박 120,000원부터</div>
+                        <button class="booking-btn">예약하기</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="hotel-card">
+                <div class="hotel-img-wrapper">
+                    <img src="https://picsum.photos/800/450?2" alt="시티 비즈니스 호텔">
+                </div>
+                <div class="hotel-info">
+                    
+                    <div class="hotel-text">
+                        <div class="hotel-name">시티 비즈니스 호텔</div>
+                        <div class="hotel-desc">역과 가까운 위치에 있어 이동이 편리하며,
+                            출장객을 위한 깔끔한 객실과 업무 공간을 제공합니다.</div>
+                    </div>
+
+                    <div class="hotel-cta">
+                        <div class="hotel-price">1박 95,000원부터</div>
+                        <button class="booking-btn">예약하기</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="hotel-card">
+                <div class="hotel-img-wrapper">
+                    <img src="https://picsum.photos/800/450?3" alt="힐링 리조트">
+                </div>
+                <div class="hotel-info">
+                    
+                    <div class="hotel-text">
+                        <div class="hotel-name">힐링 리조트</div>
+                        <div class="hotel-desc">자연 속에서 여유롭게 쉴 수 있는 리조트입니다.
+                            산책로, 수영장, 조식 서비스를 함께 제공합니다.</div>
+                    </div>
+
+                    <div class="hotel-cta">
+                        <div class="hotel-price">1박 150,000원부터</div>
+                        <button class="booking-btn">예약하기</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy 2026 Hotel Finder</p>
+    </footer>
+</body>
+</html>
