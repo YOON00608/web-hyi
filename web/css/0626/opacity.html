@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투명도</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 100px;
+            background-color: tomato;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .box1{
+            opacity: 1;
+        }
+
+        .box2{
+            opacity: 0.5;
+        }
+
+        /* 공간은 그대로 차지한다. */
+        .box3{
+            opacity: 0;
+        }
+
+        .card{
+            border: 1px solid black;
+            width: 200px;
+            opacity: 0.3;
+            transition: opacity 0.5s ease;
+        }
+
+        .card:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">1</div>
+    <div class="box box2">0.5</div>
+    <div class="box box3">0</div>
+    <div class="box box4"></div>
+
+    <hr>
+    <!-- 자식 요소까지 같이 투명해진다. -->
+    <div class="card">
+        <h2>제목</h2>
+        <p>내용</p>
+    </div>
+</body>
+</html>
