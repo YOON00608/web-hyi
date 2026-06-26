@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 랜딩 페이지</title>
+    <style>
+
+        /* 공통 스타일 */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'Noto Sans KR';
+            background-color: #0d1220;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* header 영역 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 50px;
+            background-color: #090d16; 
+            border-bottom: 1px solid #1e293b;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e11d48; 
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        
+        .nav-menu li a {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #cccccc;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* 메뉴 hover 조건 */
+        .nav-menu li a:hover {
+            color: #e11d48;
+            transform: scale(1.12);
+        }
+
+        /* main */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .movie-main {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: center; 
+        }
+
+        /* 왼쪽 포스터 영역 */
+        .poster-wrapper {
+            width: 42%;
+            height: 520px;
+            border-radius: 16px; 
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* 포스터 hover 조건 */
+        .poster-wrapper:hover img {
+            opacity: 0.8;
+            transform: scale(1.03);
+        }
+
+        .movie-info {
+            width: 53%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .badge {
+            align-self: flex-start;
+            background-color: #e11d48;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .movie-title {
+            font-size: 42px;
+            font-weight: 700;
+        }
+        
+        .movie-desc {
+            color: #94a3b8; 
+            font-size: 15px;
+            max-width: 500px;
+            margin-bottom: 8px;
+            word-break: keep-all;
+        }
+
+        .info-box {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        .info-item {
+            display: flex;
+            font-size: 14px;
+        }
+        
+        .info-label {
+            width: 90px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        
+        .info-value {
+            color: #f1f5f9;
+        }
+        
+        /* 정보 박스 hover 조건 */
+        .info-box:hover {
+            border-color: #e11d48;
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.15);
+            transform: translateX(8px);
+        }
+
+        /* 버튼 영역 */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #e11d48;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #0f172a;
+        }
+        
+        /* 버튼 hover 조건 */
+        .btn-primary:hover {
+            background-color: #be123c;
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f1f5f9;
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        /* 추천 영화 영역 */
+        .recommend-section{
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .recommend-card{
+            flex: 1;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 30px 24px;
+
+            transition: transform 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+        }
+
+        .recommend-title{
+            font-size: 22px;
+        }
+
+        .recommend-card p{
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .recommend-card:hover{
+            transform: translateX(-8px);
+            border: 1px solid #be123c;
+            background-color: #334155;
+        }
+
+        /* Footer 영역 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid #1e293b;
+            background-color: #090d16;
+            margin-top: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Movie Preview</div>
+        <ul class="nav-menu">
+            <li><a href="#">상영작</a></li>
+            <li><a href="#">예매</a></li>
+            <li><a href="#">이벤트</a></li>
+        </ul>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- 영화 메인 영역 & 영화 정보 영역 & 버튼 영역 -->
+        <section class="movie-main">
+            
+            <!-- 왼쪽 포스터 영역 -->
+            <div class="poster-wrapper">
+                <img src="https://picsum.photos/500/700?movie-main" alt="Shadowc City 영화 포스터">
+            </div>
+            
+            <!-- 오른쪽 정보 영역 -->
+            <div class="movie-info">
+                <span class="badge">이번 주 추천작</span>
+                <h2 class="movie-title">Shadow City</h2>
+                <p class="movie-desc">
+                    어두운 도시를 배경으로 숨겨진 진실을 추적하는 액션 스릴러 영화입니다.
+                    빠른 전개와 긴장감 있는 장면을 통해 관객에게 강한 몰입감을 제공합니다.
+                </p>
+                
+                <!-- 정보 박스 -->
+                <div class="info-box">
+                    <div class="info-item">
+                        <span class="info-label">장르</span>
+                        <span class="info-value">액션 / 스릴러</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">상영 시간</span>
+                        <span class="info-value">128분</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">관람 등급</span>
+                        <span class="info-value">15세 이상 관람가</span>
+                    </div>
+                </div>
+
+                <!-- 버튼 영역 -->
+                <div class="btn-group">
+                    <button class="btn btn-primary">예매하기</button>
+                    <button class="btn btn-secondary">상세정보</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 추천 영화 영역 -->
+        
+        <h3 class="recommend-title">함께 보면 좋은 영화</h3>
+        <div class="recommend-section">
+            
+            <div class="recommend-card">
+                <p>액션 무비</p>
+                <p style="margin-top: 8px; font-size: 14px; color: #999;">
+                    화려한 전투 장면과 빠른 전개가 돋보이는 영화입니다.</p>
+            </div>
+
+            <div class="recommend-card">
+                <p>로맨스 무비</p>
+                <p style="margin-top: 8px; font-size: 14px; color: #999;">
+                    따뜻한 감성과 인물 간의 관계를 중심으로 전개됩니다.</p>
+            </div>
+
+            <div class="recommend-card">
+                <p>애니메이션 무비</p>
+                <p style="margin-top: 8px; font-size: 14px; color: #999;">
+                    상상력 있는 화면과 가족이 함께 보기 좋은 이야기를 담았습니다.</p>
+            </div>
+        </div>
+    </main>
+
+        <!-- Footer 영역 -->
+        <footer>
+            <p>© 2026 Movie Preview</p>
+        </footer>
+
+</body>
+</html>
