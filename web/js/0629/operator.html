@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스 계산기</title>
+    <script>
+        function calc(){
+            // 1. input 태그를 ID 문자열('count')로 정확히 선택합니다.
+            let input = document.getElementById('count');
+
+            // 2. input 태그에 들어가있는 값을 뽑아 숫자로 변환합니다.
+            let count = Number(input.value);
+
+            // 3. 필요한 박스 개수 계산 (소수점 유지를 방지하기 위해 Math.floor 사용)
+            // 혹은 Math.ceil(count / 4)로 한 줄로 줄일 수도 있습니다.
+            let box = count % 4 === 0 ? (count / 4) : Math.floor(count / 4) + 1;
+
+            // 4. 연산된 값을 넣어주기 위한 태그를 선택
+            let div = document.getElementById('box');
+
+            // 5. 결과를 화면에 출력
+            div.innerText = box;
+        }
+
+        function ticket(){
+            let age = Number(document.getElementById('age').value);
+            let ticketPrice = Number(document.getElementById('ticketPrice').value);
+
+            let finalPrice = (age < 20) ? ticketPrice * 0.8 : ticketPrice;
+
+            document.getElementById('finalPrice').innerText = finalPrice;
+        }
+
+        function checkDeilvery(){
+            // 주문 금액 불러오기
+            let oerderPrice = Number(document.getElementById('oerderPrice').value);
+
+            // 선택된 라디오버튼 불러오기
+            let isVIP = document.querySelector("input[name='vip']:checked").value;
+
+            // 무료 배송 여부
+            let isFree = (oerderPrice >= 30000 || isVIP);
+
+            document.getElementById('result').innerText = isFree;
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>필요한 박스 계산기</h1>
+    <label>
+        공의 개수
+        <input type="text" id="count">
+    </label>
+    
+    <button onclick="calc()">계산하기</button>
+
+    <br>
+    <label for="box">
+        필요한 박스의 개수
+        <div id="box"></div>
+    </label>
+
+    <hr>
+
+    <h1>티켓 가격 계산기</h1>
+    <label>
+        <input type="text" id="ticketPrice" placeholder="티켓 가격 입력">
+    </label>
+    
+    <br><br>
+
+    <label>
+        <input type="text" id="age" placeholder="나이 입력">
+    </label>
+
+    <br><br>
+
+    <button onclick="ticket()">계산하기</button>
+    
+    <br>
+    <label for="finalPrice">
+        <div id="finalPrice"></div>
+    </label>
+
+    <hr>
+    <h1>배송비 계산하기</h1>
+    <!-- 주문 금액이 30000원 이상이거나 VIP 회원이면 무료 배송 -->
+    
+    <!-- 주문 금액 입력 -->
+     <label>
+        주문 금액:
+        <input type="number" id="oerderPrice">
+     </label>
+    <br>
+    <!-- VIP 여부는 체크박스로 -->
+    <label>
+        <input type="radio" name="vip" value="true" checked>
+        VIP
+    </label>
+    <label>
+        <input type="radio" name="vip" value="false">
+        일반회원
+    </label>
+
+    <br><br>
+    <button  onclick="checkDeilvery()">확인</button>
+    <div id="result"></div>
+</body>
+</html>

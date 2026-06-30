@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 for</title>
+    <script>
+        // for(초기식;조건식;증감식)
+        //
+        // 조건식이 참일 때 반복하고자 하는 명령
+        for(var i = 1; i < 7; i++){
+            document.write('<h',i,'>','자바 스크립트','</h',i,'>');
+        }
+
+        document.write('<hr>')
+        // 구구단 출력하기
+        let dan = 8;
+
+        for(let i = 1; i < 10; i++){
+            document.write(dan,'x',i,'=',dan*i,'<br>');
+        }
+        document.write('<hr>')
+        
+        // 리스트 출력
+        document.write("<ul>");
+        for(let i = 0; i < 3; i++){
+            document.write("<li>안녕</li>");
+        }
+
+        document.write("</ul>");
+
+        // 1부터 n까지 더하기
+        function sumLoop(){
+            
+            let maxNum = Number(document.getElementById("targetNumber").value);
+            let resultDiv = document.getElementById("result");
+
+            let totalSum = 0;
+
+            for(let i = 1; i <= maxNum; i++){
+                totalSum += i;
+            }
+
+            resultDiv.innerHTML = totalSum;
+        }
+
+    </script>
+</head>
+<body>
+    <hr>
+
+    <h3>1부터 입력한 수까지의 합</h3>
+    <!-- 숫자를 입력 받는다. -->
+    <input type="number" id="targetNumber" placeholder="숫자를 입력하세요.">
+    <!-- 계산 버튼을 만든다. -->
+    <button onclick="sumLoop()">계산</button>
+    <!-- 1부터 입력한 숫자까지 더한 값을 출력한다. -->
+    <div id="result"></div>
+</body>
+</html>
