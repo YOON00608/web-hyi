@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 장바구니 관리</title>
+    
+</head>
+<body>
+    <h1>쇼핑몰 장바구니 관리 기능 만들기</h1>
+    <h2>상품 목록</h2>
+    <div id="productList"></div>
+
+    <hr>
+
+    <h2>장바구니</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>합계</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody id="cartList">
+            </tbody>
+    </table>
+
+    <h3>총 결제 금액: <span id="totalPrice">0</span>원</h3>
+    
+    <script>
+        // 1. 상품 배열
+        let products = [
+            { name: "키보드", price: 30000 },
+            { name: "마우스", price: 15000 },
+            { name: "모니터", price: 200000 }
+        ];
+
+        // 2. 장바구니 배열 (처음에는 빈 배열)
+        let cart = [];
+
+        // [기능 1] 상품 목록을 화면에 출력하는 함수
+        function printProducts(){
+            let html = "";
+            for(let i = 0; i < products.length; i++){
+                html += products[i].name + " - " + products[i].price + "원 ";
+                html += "<button onclick='addCart(" + i + ")'>장바구니 담기</button><br><br>";
+            }
+            document.getElementById("productList").innerHTML = html;
+        }
+
+        // [기능 2] 장바구니에 상품 추가하기 함수
+        function addCart(index){
+            // 선택한 상품 정보 가져오기
+            let targetProduct = products[index];
+
+            // 장바구니에 이미 같은 상품이 있는지 확인 (findIndex 사용)
+            let foundIndex = cart.findIndex(item => item.name === targetProduct.name);
+
+            if (foundIndex === -1) {
+                // 장바구니에 없는 제품이면 새로운 객체로 추가 (수량 1)
+                cart.push({
+                    name: targetProduct.name,
+                    price: targetProduct.price,
+                    quantity: 1
+                });
+            } else {
+                // 장바구니에 이미 있는 제품이면 수량만 1 증가
+                cart[foundIndex].quantity++;
+            }
+
+            // 장바구니 배열이 변했으므로 화면을 다시 갱신
+            printCart();
+        }
+
+        // [기능 3] 장바구니 배열과 총 금액을 화면에 출력하는 함수
+        function printCart() {
+            let html = "";
+            let total = 0;
+
+            for(let i = 0; i < cart.length; i++) {
+                let itemSum = cart[i].price * cart[i].quantity; // 상품별 합계 (가격 * 수량)
+                total += itemSum; // 총 금액에 누적
+
+                html += "<tr>";
+                html += "<td>" + cart[i].name + "</td>";
+                html += "<td>" + cart[i].price + "원</td>";
+                html += "<td>" + cart[i].quantity + "개</td>";
+                html += "<td>" + itemSum + "원</td>";
+                html += "<td><button onclick='deleteCart(" + i + ")'>삭제</button></td>";
+                html += "</tr>";
+            }
+
+            // 장바구니 내역 출력
+            document.getElementById("cartList").innerHTML = html;
+            // 총 금액 출력
+            document.getElementById("totalPrice").innerText = total;
+        }
+
+        // [기능 4] 장바구니에서 특정 상품 삭제하는 함수
+        function deleteCart(index) {
+            // 배열에서 해당 인덱스의 아이템을 1개 삭제
+            cart.splice(index, 1);
+            
+            // 삭제 후 화면 다시 갱신
+            printCart();
+        }
+
+        // 초기 실행: 상품 목록 출력
+        printProducts();
+    </script>
+</body>
+</html>

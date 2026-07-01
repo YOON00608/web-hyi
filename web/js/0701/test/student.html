@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이름, 과목, 점수 입력칸 -->
+    <h2>정보 입력 칸</h2>
+    이름 <input type="text" id="name"><br>
+    과목 <input type="text" id="subject"><br>
+    점수 <input type="number" id="score"><br><br>
+
+    <!-- 학생 추가 버튼 -->
+     <button onclick="addStudent()">추가</button>
+    
+    <hr>
+
+    <h2>수강생 목록</h2>
+    <!-- 수강생 목록 -->
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>과목</th>
+                <th>점수</th>
+                <th>합격 여부</th>
+            </tr>
+        </thead>
+        <tbody id="studentList">
+        </tbody>
+    </table>
+
+    <script>
+        // 학생 정보를 관리하는 프로그램 만들기
+        // 학생 1명의 정보는 객체로 관리한다.
+        // 이름, 과목, 점수 세 가지 속성이 존재한다.
+        // 여러 명의 학생은 배열로 관리한다.
+
+        // 페이지가 처음 열릴 때 students 배열에 들어있는 학생 목록 출력하기
+        // 이름 / 과목/ 점수
+        // 점수가 60점 이상이면 합격, 60점 미만이면 불합격을 목록 뒤에 함께 출력하기
+
+        let students = [
+            {name : "김철수", subject : "java", score : 90},
+            {name : "홍길동", subject : "javaScript", score : 55},
+            {name : "이영희", subject : "HTML/CSS", score : 85}
+        ];
+
+        function printStudents(){
+            let html = "";
+            
+            for(let i = 0; i < students.length; i++){
+                let result = "";
+                let resultClass = "";
+                if(students[i].score >= 60){
+                    result = "합격";
+                    resultClass = "pass";
+                }else{
+                    result = "불합격"
+                    resultClass = "fail";
+                }
+
+                html += "<tr>";
+                html += "<td>" + students[i].name + "</td>";
+                html += "<td>" + students[i].subject + "</td>";
+                html += "<td>" + students[i].score + "점</td>";
+                html += "<td class='" + resultClass + "'>" + result + "</td>";
+                html += "</tr>";
+            }
+            document.getElementById("studentList").innerHTML = html;
+           
+        }
+        
+        // 학생 추가하기
+        // 정보를 입력하고 버튼을 누르면 새로운 학생을 만들어 배열에 추가하기
+        function addStudent(){
+            let nameInput = document.getElementById("name").value.trim();
+            let subjectInput = document.getElementById("subject").value.trim();
+            let scoreInput = document.getElementById("score").value.trim();
+
+            // 입력값 검사
+            // 이름, 과목, 점수가 비어있는 경우 "모든 값을 입력하세요" 경고창 출력하기
+            if(nameInput === "" || subjectInput === "" || scoreInput === ""){
+                alert("모든 값을 입력하세요");
+                return;
+            }
+
+            let newStudent = {
+                name : nameInput,
+                subject : subjectInput,
+                score : Number(scoreInput)
+            };
+
+            students.push(newStudent);
+
+            document.getElementById("name").value = "";
+            document.getElementById("subject").value = "";
+            document.getElementById("score").value = "";
+
+            printStudents();
+        }
+        printStudents();
+    </script>
+</body>
+</html>
