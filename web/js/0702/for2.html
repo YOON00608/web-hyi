@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 추가</title>
+    <script>
+        // for ... of문
+        // 배열의 값을 하나씩 꺼낼 때 사용한다.
+        // for(let 변수 of 배열){
+        //  반복할 코드
+        //}
+        document.write("<h2>for of문</h2>");
+        
+        // 배열 생성
+        let fruits = ["사과","바나나","포도"];
+        
+        for(let fruit of fruits){
+            document.write(fruit,"<br>");
+        }
+
+        document.write("<hr>");
+
+        document.write("<h2>for in문</h2>");
+        // for ... in
+        // 객체의 key를 하나씩 꺼낼 때 사용한다
+        // for(let 변수 in 객체){
+        //
+        //}
+        
+        // 객체 생성
+        let student = {
+            name : "홍길동",
+            age : 20,
+            major : "웹개발"
+        }
+
+        // key에 대입 후 출력하기
+        for(let key in student){
+            document.write(student[key],"<br>");
+        }
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
