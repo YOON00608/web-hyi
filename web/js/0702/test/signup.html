@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 실습</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .container{
+            width: 420px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .id-box{
+            display: flex;
+            gap: 5px;
+            justify-content: space-between;
+        }
+
+        .id-box input{
+            width: 100%;
+        }
+
+        h1{
+            text-align: center;
+            color: #111827;
+            margin-top: 0;
+        }
+
+        .form-group{
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #374151;
+        }
+
+        #checkBtn{
+            width: 90px;
+            background-color: #6b7280;
+            color: white;
+            border: 1px solid #6b7280;
+            transition: 0.3s;
+        }
+
+        #checkBtn:hover{
+            background-color: #4b5563;
+        }
+
+        .email-box{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .email-box select{
+            width: 140px;
+        }
+
+        .email-box span{
+            font-weight: bold;
+            color: #6b7280;
+        }
+
+        input, select{
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .pw-box input{
+            width: 100%;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: royalblue;
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        #joinBtn{
+            width: 100%;
+            background-color: royalblue;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        #joinBtn:hover{
+            background-color: #3b5998;
+        }
+
+        #message{
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .member-list-title{
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #111827;
+            padding-bottom: 5px;
+        }
+
+        .member-item{
+            background-color: #f9fafb;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #374151;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>회원 가입</h1>
+
+        <div class="form-group">
+            <label for="userId">아이디</label>
+            <div class="id-box">
+                <input type="text" id="userId" placeholder="아이디 입력">
+                <button id="checkBtn">중복검사</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userPw">비밀번호</label>
+            <div class="pw-box">
+                <input type="password" id="userPw" placeholder="비밀번호 입력">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="emailId">이메일</label>
+            <div class="email-box">
+                <input type="email" id="emailId" placeholder="이메일 아이디">
+                <span>@</span>
+                <select id="emailDomain">
+                    <option value="gmail.com">gmail.com</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="daum.com">daum.com</option>
+                    <option value="kakao.com">kakao.com</option>
+                    <option value="직접 입력">직접 입력</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="joinBtn">회원가입</button>
+
+        <div id="message"></div>
+
+        <div class="member-list-title">회원 목록</div>
+        <div id="memberList"></div>
+    </div>  
+
+    <script>
+        let members = [];
+
+        const userIdElement = document.getElementById("userId");
+        const userPwElement = document.getElementById("userPw");
+        const emailIdElement = document.getElementById("emailId");
+        const emailDomainElement = document.getElementById("emailDomain");
+        const checkBtn = document.getElementById("checkBtn");
+        const joinBtn = document.getElementById("joinBtn");
+        const message = document.getElementById("message");
+        const memberList = document.getElementById("memberList");
+
+        // 중복검사 통과 여부 기록하는 플래그 변수
+        let isIdChecked = false;
+
+        // 아이디 입력창의 값이 바뀌면 상태 초기화
+        userIdElement.addEventListener("input", () => {
+            isIdChecked = false;
+        });
+
+        // 아이디 중복검사 기능
+        checkBtn.addEventListener("click", () => {
+            
+            const inputId = userIdElement.value.trim();
+
+            if (inputId === "") {
+                alert("아이디를 입력하세요.");
+                message.innerText = "";
+                return;
+            }
+
+            const isDuplicate = members.some(member => member.id === inputId);
+            
+            if (isDuplicate) {
+                message.innerText = "이미 사용 중인 아이디입니다.";
+                message.style.color = "#ef4444";
+                isIdChecked = false;
+            } else {
+                message.innerText = "사용 가능한 아이디입니다.";
+                message.style.color = "#10b981";
+                isIdChecked = true;
+            }
+        });
+
+        // 회원가입 기능
+        joinBtn.addEventListener("click", () => {
+            const id = userIdElement.value.trim();
+            const pw = userPwElement.value.trim();
+            const emailId = emailIdElement.value.trim();
+            const domain = emailDomainElement.value;
+
+            if (id === "" || pw === "" || emailId === "") {
+                alert("모든 항목을 입력하세요.");
+                return;
+            }
+
+            // 중복 검사를 통과했는지 먼저 확인하는 조건문 
+            if (!isIdChecked) {
+                alert("아이디 중복검사를 진행해 주세요.");
+                return;
+            }
+
+            const isDuplicate = members.some(member => member.id === id);
+            if (isDuplicate) {
+                alert("이미 가입된 아이디입니다.");
+                return;
+            }
+
+            // 이메일 주소 결합 처리 추가 
+            const fullEmail = `${emailId}@${domain}`;
+
+            const newMember = {
+                id: id,
+                pw: pw,
+                email: fullEmail
+            };
+
+            members.push(newMember);
+
+            message.innerText = "회원가입이 완료 되었습니다.";
+            message.style.color = "#10b981";
+
+            // 입력 폼 초기화
+            userIdElement.value = "";
+            userPwElement.value = "";
+            emailIdElement.value = "";
+            emailDomainElement.selectedIndex = 0;
+            isIdChecked = false;
+
+            rederMemberList();
+        });
+
+        // 회원 목록 출력
+        const rederMemberList = () => {
+            memberList.innerText = "";
+
+            members.forEach(member => {
+                const memberItem = document.createElement("div");
+                memberItem.className = "member-item";
+                memberItem.innerHTML = `
+                    <span><strong>ID:</strong> ${member.id}</span>
+                    <span><strong>Email:</strong> ${member.email}</span>
+                `;
+
+                memberList.appendChild(memberItem);
+            });
+        };
+
+        rederMemberList();
+    </script>
+</body>
+</html>

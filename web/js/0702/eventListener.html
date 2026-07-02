@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 리스너</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            background-color: skyblue;
+            transition: 0.7s;
+        }
+    </style>
+</head>
+<body>
+    <!-- html과 js가 완전히 분리된다. -->
+    <button id="btn">클릭하세요</button>
+
+    <div id="box">
+        마우스를 올려보세요
+    </div>
+
+    <hr>
+
+    <input id="name" type="text" placeholder="이름 입력">
+    <p id="result"></p>
+
+    <hr><br>
+
+    <select id="fruit">
+        <option>사과</option>
+        <option>바나나</option>
+        <option>포도</option>
+    </select>
+    
+    <hr><br>
+    <input type="text" id="focusInput" placeholder="포커스 테스트창">
+
+    <script>
+        // 1. 클릭 이벤트
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", () => alert("안녕하세요!"));
+
+        // 2. 마우스 오버 / 아웃 이벤트
+        const box = document.getElementById("box");
+        
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = "green";
+        });
+    
+        box.addEventListener("mouseout", () => {
+            box.style.backgroundColor = "skyblue";
+        });
+
+        // 3. input : 실시간 입력 발생 시 출력
+        const input = document.getElementById("name");
+        const result = document.getElementById("result");
+
+        input.addEventListener("input", () => {
+            result.innerText = input.value;
+        });
+
+        // 4. change : 선택을 완료했을 때 발생하는 이벤트 
+        const fruitSelect = document.getElementById("fruit");
+        fruitSelect.addEventListener("change", () => {
+            alert(`선택하신 과일은 [ ${fruitSelect.value} ] 입니다!`);
+        });
+
+        // 5. focus / blur 
+        // input 태그에 포커스가 잡히면 테두리를 노란색으로, 빠져나오면 파란색으로 만들기
+        const focusInput = document.getElementById("focusInput");
+
+        focusInput.addEventListener("focus", () => {
+            focusInput.style.borderColor = "yellow";
+            focusInput.style.outline = "none"; 
+        });
+
+        focusInput.addEventListener("blur", () => {
+            focusInput.style.borderColor = "blue";
+        });
+    </script>
+</body>
+</html>

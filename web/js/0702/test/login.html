@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 입력창</title>
+    <style>
+        
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #fff;
+            color: black;
+            padding: 50px;
+            transition: 0.3s;
+        }
+
+        #loginBox{
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            transition: 0.3s;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            color: black;
+            border: 1px solid #aaa;
+            margin-bottom: 10px;
+        }
+
+        #loginBtn{
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+        }
+
+        /* 다크 모드 */
+        body.dark{
+            background-color: #111;
+            color: white;
+        }
+
+        #loginBox.dark{
+            background-color: #222;
+            border: 1px solid #555;
+            padding: 20px;
+            width: 300px;
+        }
+
+        input.dark{
+            background-color: #333;
+            color: white;
+            border: 1px solid #777;
+        }
+
+        #loginBtn.dark{
+            background-color: royalblue;
+            color: white;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="loginBox">
+        <h2>로그인</h2>
+        <input type="text" id="userId" placeholder="아이디">
+        <input type="password" id="userPw" placeholder="비밀번호">
+        
+        <button id="loginBtn">로그인</button>
+    
+    </div>
+    
+    <button id="themeBtn" onclick="toggleTheme()" >다크 모드</button>
+    
+    <script>
+
+        const toggleTheme = () => {
+            document.body.classList.toggle("dark");
+            document.getElementById("loginBox").classList.toggle("dark");
+            document.getElementById("userId").classList.toggle("dark");
+            document.getElementById("userPw").classList.toggle("dark");
+            document.getElementById("loginBtn").classList.toggle("dark");
+        }
+
+    </script>
+</body>
+</html>

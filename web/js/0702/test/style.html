@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- h1 태그를 하나 작성한다
+        내용은 DOM 스타일 변경
+        id는 title로 작성
+        버튼을 1개 만든다
+        버튼의 글자는 스타일 변경으로 작성
+        버튼 글릭 시 changeStyle() 함수가 실행되도록 -->
+        <h2 id="title">DOM 스타일 변경</h2>
+        <button onclick="changeStyle()">스타일 변경</button>
+
+        <script>
+            changeStyle = () => {
+                let title = document.getElementById("title");
+                
+                title.style.color = "white";
+                title.style.backgroundColor = "royalblue";
+                title.style.fontSize = "40px";
+                title.style.textAlign = "center";
+
+            }
+        </script>
+</body>
+</html>
