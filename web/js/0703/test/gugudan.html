@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 만들기</title>
+    <style>
+        #disp{
+            width: 300px;
+            height: 300px;
+            /* background-color: black;
+            color: white; */
+        }
+    </style>
+
+    <script>
+        function gugu(){
+            let m_dan = document.getElementById("dan").value;
+
+            // 유효성 체크
+            if(m_dan.trim()== ""){
+                alert("값을 입력해야 합니다.")
+                return;
+            }
+
+            if(m_dan < 2 || m_dan > 9){
+                alert("2~9만 입력 가능합니다.")
+                return;
+            }
+
+            // 구구단 생성
+            let str = "";
+
+            for(let i = 1; i < 10; i++){
+                str = str + m_dan + 'x' + i + '=' + (m_dan * i) + "<br>";
+            }
+
+            let gugudan = document.getElementById("disp");
+            gugudan.innerHTML = str;
+        }
+
+        let b_show = true;
+        function show(){
+            b_show = !b_show;
+            document.getElementById("bt_show").value = b_show ? "숨기기" : "보이기";
+            document.getElementById("disp").style.display = b_show ? 'block' : 'none';
+        }
+
+    </script>
+</head>
+<body>
+    <p>
+        단:
+        <input id="dan">
+        <input type="button" value="계산시작" onclick="gugu()">
+        <input type="button" id="bt_show" value="숨기기" onclick="show()">
+    </p>
+
+    <hr>
+
+    <div id="disp">
+        여기에 구구단
+    </div>
+</body>
+</html>

@@ -26,8 +26,7 @@
 
         .id-box{
             display: flex;
-            gap: 5px;
-            justify-content: space-between;
+            gap: 8px;
         }
 
         .id-box input{
@@ -122,14 +121,6 @@
             font-weight: bold;
         }
 
-        .member-list-title{
-            margin-top: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #111827;
-            padding-bottom: 5px;
-        }
-
         .member-item{
             background-color: #f9fafb;
             border: 1px solid #ddd;
@@ -154,6 +145,7 @@
                 <button id="checkBtn">중복검사</button>
             </div>
         </div>
+        <div id="message"></div>
 
         <div class="form-group">
             <label for="userPw">비밀번호</label>
@@ -179,23 +171,29 @@
 
         <button id="joinBtn">회원가입</button>
 
-        <div id="message"></div>
+        
 
-        <div class="member-list-title">회원 목록</div>
+        <h2>회원 목록</h2>
         <div id="memberList"></div>
     </div>  
 
     <script>
-        let members = [];
+        // 회원 정보를 저장할 객체 배열
+        // 회원 1명을 객체 형태로 집어넣어라
+        let members = [{id:"test", pw:1234, email : "test@naver.com"}];
 
+        // 필요한 html 요소를 전부 읽어오기
         const userIdElement = document.getElementById("userId");
         const userPwElement = document.getElementById("userPw");
         const emailIdElement = document.getElementById("emailId");
         const emailDomainElement = document.getElementById("emailDomain");
+        
         const checkBtn = document.getElementById("checkBtn");
         const joinBtn = document.getElementById("joinBtn");
+        
         const message = document.getElementById("message");
         const memberList = document.getElementById("memberList");
+
 
         // 중복검사 통과 여부 기록하는 플래그 변수
         let isIdChecked = false;
@@ -205,16 +203,20 @@
             isIdChecked = false;
         });
 
-        // 아이디 중복검사 기능
+        // 1) 아이디 중복검사 기능
         checkBtn.addEventListener("click", () => {
             
+            // 1. 사용자가 입력한 값을 받아온다.
             const inputId = userIdElement.value.trim();
 
+            // 아이디를 입력하지 않았을 때
             if (inputId === "") {
                 alert("아이디를 입력하세요.");
                 message.innerText = "";
                 return;
             }
+
+            // 중복검사
 
             const isDuplicate = members.some(member => member.id === inputId);
             

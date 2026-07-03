@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 환율 계산기</title>
+    <style>
+
+        body{
+            background-color: #f3f4f6;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .converter-container{
+            width: 500px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+        }
+
+        h1{
+            font-size: 32px;
+            color: #2563eb;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        p{
+            text-align: center;
+            color: gray;
+            margin-bottom: 25px;
+        }
+
+        input[type="number"], select{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button{
+            width: 100%;
+            height: 50px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            opacity: 0.8;
+        }
+
+        #resultBox{
+            background-color: #eff6ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        #resultBox.show{
+            display: block;
+        }
+
+        .result-item{
+            margin: 8px 0;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .final-amount{
+            font-size: 30px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="converter-container">
+        <h1>실시간 환율 계산기</h1>
+        <p>USD 기준 환율 데이터를 가져와 선택한 통화로 환산합니다.</p>
+
+        <!-- USD 입력 -->
+        <input type="number" id="usdInput" placeholder="변환할 USD 금액">
+
+        <!-- 통화 선택 -->
+        <select id="currencySelect">
+            <option value="KRW">KRW - 대한민국 원</option>
+            <option value="JPY">JPY - 일본 엔</option>
+            <option value="EUR">EUR - 유로</option>
+            <option value="GBP">GBP - 영국 파운드</option>
+        </select>
+
+        <!-- 계산 버튼 -->
+        <button id="calcBtn">환율 계산하기</button>
+
+        <!-- 결과 출력 영역 -->
+        <div id="resultBox">
+            <div class="result-item">기준 통화 USD</div>
+            <div class="result-item">선택 통화 <span id="targetCurrency"></span></div>
+            <div class="result-item">입력 금액 <span id="inputAmount"></span>USD</div>
+            <div class="result-item">적용 환율 1 USD = <span id="exchangeRate"></span></div>
+            <div class="result-item">업데이트 시간<span id="updateTime"></span></div>
+            <div class="final-amount" id="finalResult">0</div>
+        </div>
+    </div>
+
+    <script>
+
+        // 환율 데이터 저장할 객체 선언
+        let exchangeRates = {};
+        let lastUpdateTime = "";
+
+        // 페이지 실행 시 API 호출하여 환율 데이터 가져오기
+        window.addEventListener('DOMContentLoaded', async()=>{
+            fetch("https://open.er-api.com/v6/latest/USD")
+            .then(response => response.json())
+            .then(data => {
+                exchangeRates = data.rates;
+                lastUpdateTime = data.time_last_update_utc;
+                console.log("환율 데이터 로드 완료");
+            });
+        });
+
+        // 계산 버튼 클릭 이벤트 리스너
+        document.getElementById('calcBtn').addEventListener("click", ()=>{
+            const usdInput = document.getElementById("usdInput").value;
+            const selectedCurrency = document.getElementById("currencySelect").value;
+            const resultBox = document.getElementById("resultBox");
+
+            // 입력값 검사
+            if(usdInput === ""){
+                alert("금액을 입력해주세요.");
+                return;
+            }
+
+            const amount = parseFloat(usdInput);
+            if(amount <= 0){
+                alert("0보다 큰 금액을 입력해주세요.");
+                return;
+            }
+
+            if(!exchangeRates[selectedCurrency]){
+                alert("환율 데이터를 아직 불러오는 중입니다. 잠시 후 다시 시도해주세요.");
+                return;
+            }
+
+            // 환산 금액 계산
+            const rate = exchangeRates[selectedCurrency];
+            const convertedAmount
+        })
+
+
+    </script>
+</body>
+</html>

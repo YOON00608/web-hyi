@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 랜덤 강아지 사진 가져오기 -->
+    <h2> 랜덤 강아지 사진 가져오기</h2>
+    <button id="btn">사진 가져오기</button>
+    <br><br>
+    <img id="photo" width ="300px">
+
+    <hr>
+    <h2>음악 검색 하기</h2>
+
+    <input id="search" placeholder="검색어 입력">
+    <button id="musicBtn">검색</button>
+    <ul id="result"></ul>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",async ()=>{
+            fetch("https://picsum.photos/v2/list?page=2&limit=100")
+            .then(res => {
+                if(!res.ok){
+                    console.log("데이터 불러오기 실패");
+                }
+                return res.json();
+            })
+            .then(data => {
+                //0 ~ data.length-1 사이의 랜덤 번호 생성
+                const random = Math.floor(Math.random() * data.length);
+
+                //랜덤 이미지 출력하기
+                document.getElementById("photo").src = data[random].download_url;
+            });
+        })
+
+        document.getElementById("musicBtn").addEventListener("click", async()=>{
+            const keyword = document.getElementById("search").value.trim();
+
+            if(!keyword){
+                alert("검색어를 입력하세요");
+                return;
+            }
+
+            fetch(`https://itunes.apple.com/search?term=${keyword}&entity=song&limit=5`)
+                .then(res => {
+                    if(!res.ok){
+                        console.log("검색 실패");
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    const html = data.results.length
+                    ? data.results.map(item => // map()의 결과는 배열
+                        `<li> ${item.trackName} - ${item.artistName}</li>`
+                    ).join("") // join() : 배열의 요소를 매끄럽게 연결
+                    : "<li>검색 결과 없음</li>";
+
+                    document.getElementById("result").innerHTML = html;
+                })
+        })
+
+    </script>
+</body>
+</html>
