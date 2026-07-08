@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깃허브 프로필 검색</title>
+    <link href="/js/0708/github.css" rel="stylesheet">
+    <script src="/js/0708/github.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>GitHub 사용자 프로필 검색</h2>
+
+        <div class="box">
+            <input type="text" id="githubId" placeholder="GitHub 아이디 입력 (3~20자)">
+            <button id="searchBtn" disabled>검색</button>
+        </div>
+        
+        <p id="message" class="error"></p>
+        <div id="profileBox"></div>
+    </div>
+</body>
+</html>
