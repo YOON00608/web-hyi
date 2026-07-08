@@ -108,7 +108,7 @@ searchBtn.addEventListener("click", async()=>{
         if (error.message === "NOT_FOUND") {
             message.textContent = "존재하지 않는 사용자입니다.";
         } else if (error.message === "RATE_LIMIT") {
-            message.textContent = "잠시 후 다시 시도하세요.";
+            message.textContent = "접근 권한이 없습니다.";
         } else {
             message.textContent = "데이터를 불러오는 중 오류가 발생했습니다.";
         }
