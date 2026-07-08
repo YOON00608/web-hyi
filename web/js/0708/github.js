@@ -18,7 +18,7 @@ const validateGithubId = () => {
         return false;
     }
 
-    let regex = /^[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]$/;
+    let regex = /^[A-Za-z0-9-]+$/;
 
     if(!regex.test(value)){
         message.textContent = "영어, 숫자, 하이픈만 사용 가능하며 처음과 끝에는 하이픈을 사용할 수 없습니다.";
