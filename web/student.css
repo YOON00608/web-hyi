@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 40px 0;
+    background-color: #f1f2f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container h1{
+    text-align: center;
+}
+
+.container p{
+    text-align: center;
+    color: #666;
+}
+
+.container{
+    background-color: white;
+    padding: 20px;
+    width: 700px;
+    height: 900px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+}
+
+.form-group{
+    background-color: rgb(240, 240, 240);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input{
+    padding: 15px 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+select{
+    padding: 15px 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 12px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+#addBtn{
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+}
+
+#loadBtn{
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#message{
+    color: #e74c3c;
+}
+
+h2 {
+    display: inline-block; 
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.count {
+    float: right;
+    margin-top: 33px;      
+    font-size: 14px;
+    background-color: #f1f3f5;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: bold;     
+}
+
+table {
+    clear: both;           
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+}
+
+th{
+    background-color: #f1f3f5;
+    color: #495057;
+    font-weight: 600;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+td{
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+    color: #495057;
+    background-color: white;
+}
+
+.empty{
+    color: #868e96;
+    padding: 30px;
+    background-color: white;
+}
