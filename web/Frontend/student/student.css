@@ -25,7 +25,7 @@ body{
 }
 
 .form-group{
-    background-color: rgb(240, 240, 240);
+    background-color: #f1f2f4;
     padding: 25px;
     border-radius: 8px;
     display: flex;
@@ -39,6 +39,12 @@ input{
     border: 1px solid #ccc;
     border-radius: 6px;
     margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+input:focus {
+  outline: none; 
+  border: 2px solid royalblue; 
 }
 
 select{
@@ -46,6 +52,13 @@ select{
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 6px;
+    transition: 0.2s;
+    color: #495057;
+}
+
+select:focus{
+    outline: none; 
+    border: 2px solid royalblue;
 }
 
 .button-group{
@@ -66,7 +79,7 @@ button{
 }
 
 button:hover{
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 #addBtn{
