@@ -83,25 +83,27 @@ function addStudent() { // 수강생 등록 함수
 
     
     if (!name) {
-        alert("이름을 입력해야 합니다.");
+        messageP.textContent = "이름을 입력하세요";
         nameInput.focus();
-        return;
+        return; // 여기서 함수를 종료하여 서버 전송을 막음
     }
     if (!course) {
-        alert("과정명을 선택해야 합니다.");
+        messageP.textContent = "과정명을 선택하세요.";
         courseSelect.focus();
         return;
     }
     if (!email) {
-        alert("이메일을 입력해야 합니다.");
+        messageP.textContent = "이메일을 입력하세요.";
         emailInput.focus();
         return;
     }
     if (!email.includes("@")) {
-        alert("이메일에 @가 포함되어야 합니다.");
+        messageP.textContent = "이메일에 @가 포함되어야 합니다.";
         emailInput.focus();
         return;
-    } // 유효성 검사
+    }
+
+    messageP.textContent = "";
 
     const payload = {
         name,
