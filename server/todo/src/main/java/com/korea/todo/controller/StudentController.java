@@ -16,7 +16,7 @@ import com.korea.todo.service.StudentService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("api/students")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*") 
 public class StudentController {
