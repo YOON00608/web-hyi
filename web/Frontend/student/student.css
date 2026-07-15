@@ -64,7 +64,13 @@ button{
     padding: 12px 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    font-size: 15px;
     flex: 1;
+    transition: 0.5s;
+}
+
+button:hover{
+    opacity: 0.9;
 }
 
 #addBtn{
