@@ -30,7 +30,9 @@ function loadStudents() {
             if (list.length === 0) {
                 studentList.innerHTML = `
                     <tr>
-                        <td colspan="4" class="empty">등록된 수강생이 없습니다.</td>
+                        <td colspan="4" class="empty">
+                            등록된 수강생이 없습니다.
+                        </td>
                     </tr>`;
                 return;
             }
