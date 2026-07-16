@@ -31,6 +31,6 @@ public interface TodoRepository extends JpaRepository<TodoEntity,Long> {
 	// ? 뒤에 1은 메서드의 첫 번째 매개변수를 사용하겠다는 의미
 	
 	// SELECT * FROM todo WHERE userid = ?1
-	@Query("SELECT t FROM TodoEntuty t WHERE t.userId = ?")
+	@Query("SELECT t FROM TodoEntity t WHERE t.userId = ?1")
 	List<TodoEntity> findBtUserIdQuery(Long userId);
 }
