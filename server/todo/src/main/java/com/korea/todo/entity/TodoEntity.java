@@ -28,4 +28,5 @@ public class TodoEntity {
 	private String title;	// 할일
 	private boolean done;	// 완료 여부
 	
+	
 }
