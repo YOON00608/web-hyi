@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.korea.todo.dto.UserDTO;
 import com.korea.todo.entity.UserEntity;
+import com.korea.todo.security.TokenProvider;
 import com.korea.todo.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,9 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	
 	private final UserService userService;
+	private final TokenProvider tokenProvider;
+	
+	
 	
 	// 회원가입
 	// 경로 : /signup
@@ -28,6 +32,7 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@RequestBody UserDTO dto){
 		try {
+			// DTO를 Entity로 바꾸기
 			UserEntity user = UserEntity.builder()
 					.username(dto.getUsername())
 					.password(dto.getPassword())
@@ -58,15 +63,22 @@ public class UserController {
 				dto.getUsername(),
 				dto.getPassword()
 			);
+		// 유저가 존재한다면
 		if(user != null) {
+			final String token = tokenProvider.create(user);
+			
 			UserDTO responseUserDTO = UserDTO.builder()
 					.id(user.getId())
 					.username(user.getUsername())
+					.token(token)
 					.build();
 			return ResponseEntity.ok().body(responseUserDTO);
 		}else {
+			// 유저가 존재하지 않거나 인증실패 시 
 			return ResponseEntity.badRequest().body("Login failed");
 		}
 	}
+	
+	
 	
 }
