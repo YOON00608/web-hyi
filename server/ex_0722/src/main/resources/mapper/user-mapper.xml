@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!--  UserDAO 인터페이스의 전체 패키지 경로로 수정 -->
+<mapper namespace="com.korea.ex_0722.dao.UserDAO">
+	
+	<select id="findAll" resultType="UserVO">
+		SELECT id, name, email FROM users
+	</select>
+	
+	<!-- 조건을 통한 조회 -->
+	<select id="findById" resultType="UserVO">
+		SELECT id,name,email FROM users WHERE id=#{id}
+	</select>
+	
+	<!-- 추가하기 -->
+	<insert id="insert">
+		INSERT INTO users(name,email) VALUES(#{name},#{email})
+	</insert>
+	
+	<!-- 수정하기 -->
+	<update id="update">
+		UPDATE users 
+		SET 
+			name=#{name}, 
+			email=#{email} 
+		WHERE id=#{id} 	
+	</update>
+	
+	<!-- 삭제하기 -->
+	<delete id="delete">
+		DELETE FROM users
+		WHERE id=#{id}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
