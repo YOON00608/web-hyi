@@ -1,4 +1,4 @@
-package com.korea.ex_0722.vo;
+package com.korea.ex_0723.vo;
 
 import lombok.Data;
 

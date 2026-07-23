@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.korea.ex_0723.dao.BookDAO">
+	<!-- 전체 도서 검색 -->
+    <select id="findAll" resultType="com.korea.ex_0723.vo.BookVO">
+    	SELECT 
+	    	id,
+		    title,
+		    author,
+		    category,
+		    price,
+		    stock
+		FROM books
+    </select>
+    
+    <!-- id로 도서 검색 -->
+    <select id="findBook" resultType="com.korea.ex_0723.vo.BookVO">
+        SELECT id, title, author FROM books WHERE id = #{id}
+    </select>
+	
+	<!-- 도서 등록 -->
+	
+	<insert id="insertBook">
+		insert into books(title,author,category,price,stock)
+		VALUES(#{title},#{author},#{category},#{price},#{stock}) 
+	</insert>
+	
+	<!-- 도서 수정 -->
+    <update id="updateBook">
+        UPDATE books
+        SET title = #{title},
+            author = #{author},
+            category = #{category},
+            price = #{price},
+            stock = #{stock}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 도서 삭제 -->
+    <delete id="deleteBook">
+        DELETE FROM books
+        WHERE id = #{id}
+    </delete>
+
+    <!-- 카테고리별 도서 조회 -->
+    <select id="findByCategory" resultType="com.korea.ex_0723.vo.BookVO">
+        SELECT * FROM books
+        WHERE category = #{category}
+    </select>
+
+    <!-- 도서 제목 검색 (LIKE CONCAT 사용) -->
+    <select id=""></select>
+    <select id="searchByTitle" resultType="com.korea.ex_0723.vo.BookVO">
+        SELECT * FROM books
+        WHERE title LIKE CONCAT('%', #{title}, '%')
+    </select>
+
+    <!-- 가격 이상의 도서 조회 (오름차순 정렬) -->
+    <select id="findByPriceMin" resultType="com.korea.ex_0723.vo.BookVO">
+        SELECT * FROM books
+        WHERE price >= #{minPrice}
+        ORDER BY price ASC
+    </select>
+	
+	
+</mapper>
