@@ -4,7 +4,7 @@ import ex_0722.coupling.CommonCoplingExample.ModuleA;
 import ex_0722.coupling.CommonCoplingExample.ModuleB;
 import ex_0722.coupling.ContentCouplingExample.BankAccount;
 import ex_0722.coupling.ContentCouplingExample.HackerModule;
-import ex_0722.coupling.ControleCouplingExample.OrderService;
+import ex_0722.coupling.ControlCouplingExample.OrderService;
 import ex_0722.coupling.ExternalCouplingExample.NetworkClient;
 
 public class Main {
@@ -18,17 +18,18 @@ public class Main {
 		System.out.println("최종 결제 금액 : " + finalPrice);
 		
 		NetworkClient client = new NetworkClient();
-		client.cannet();
+		client.connet();
 		
 		ModuleA moduleA = new ModuleA();
 		ModuleB moduleB = new ModuleB();
 		
-		moduleA.updateDiscountRate(); // 전역변수의 값을 바꿈
-		moduleB.printPirce(100); // 바뀐 전역변수의 영향을 그대로 받는다.
+		moduleA.updateDiscount(); //전역변수의 값을 바꿈
+		moduleB.printPrice(100); //바뀐 전역변수의 영향을 그대로 받는다.
 		
 		BankAccount account = new BankAccount();
 		HackerModule hacker = new HackerModule();
 		
-		hacker.stealMoney(account); // 상대 객체 내부 잔액을 강제로 조작
+		hacker.stealMoney(account);//상대 객체 내부 잔액을 강제로 조작
+		
 	}
 }
