@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.korea.petclinic.dao.ReservationDAO">
+  
+	<!-- 기존 조회 쿼리 -->
+    <select id="findAll" resultType="com.korea.petclinic.vo.ReservationVO">
+        SELECT * FROM reservation
+    </select>
+
+    <select id="findById" resultType="com.korea.petclinic.vo.ReservationVO">
+        SELECT * FROM reservation WHERE id = #{id}
+    </select>
+
+
+    <insert id="insert" parameterType="com.korea.petclinic.vo.ReservationVO">
+    INSERT INTO reservation (pet_name, owner_name, animal_type, doctor_name, reservation_date, status, price)
+    VALUES (#{petName}, #{ownerName}, #{animalType}, #{doctorName}, #{reservationDate}, #{status}, #{price})
+	</insert>
+
+	<update id="update" parameterType="com.korea.petclinic.vo.ReservationVO">
+	    UPDATE reservation
+	    SET pet_name = #{petName},
+	        owner_name = #{ownerName},
+	        animal_type = #{animalType},
+	        doctor_name = #{doctorName},
+	        reservation_date = #{reservationDate},
+	        status = #{status},
+	        price = #{price}
+	    WHERE id = #{id}
+	</update>
+
+
+    <!-- 예약 삭제 -->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM reservation WHERE id = #{id}
+    </delete>
+
+
+    <!-- 검색 기준 선택 (컬럼명을 DB 컬럼명인 스네이크케이스로 수정) -->
+	<select id="searchDetail" resultType="com.korea.petclinic.vo.ReservationVO">
+	    SELECT * FROM reservation
+	    <where>
+	        <choose>
+	            <when test="searchType == 'pet'">
+	                pet_name LIKE CONCAT('%', #{keyword}, '%')
+	            </when>
+	            <when test="searchType == 'owner'">
+	                owner_name LIKE CONCAT('%', #{keyword}, '%')
+	            </when>
+	            <when test="searchType == 'doctor'">
+	                doctor_name LIKE CONCAT('%', #{keyword}, '%')
+	            </when>
+	        </choose>
+	    </where>
+	</select>
+
+
+    <!-- 진료비 정렬 (asc / desc) -->
+    <select id="sortByPrice" resultType="com.korea.petclinic.vo.ReservationVO">
+        SELECT * FROM reservation
+        ORDER BY price 
+        <choose>
+            <when test="sort == 'desc'">DESC</when>
+            <otherwise>ASC</otherwise>
+        </choose>
+    </select>
+
+
+    <!-- 예약 상태별 예약 수 조회 -->
+    <select id="getStatusCount" resultType="java.util.HashMap">
+        SELECT status, COUNT(*) AS count
+        FROM reservation
+        GROUP BY status
+    </select>
+  </mapper>
