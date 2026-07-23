@@ -52,7 +52,6 @@
     </select>
 
     <!-- 도서 제목 검색 (LIKE CONCAT 사용) -->
-    <select id=""></select>
     <select id="searchByTitle" resultType="com.korea.ex_0723.vo.BookVO">
         SELECT * FROM books
         WHERE title LIKE CONCAT('%', #{title}, '%')
@@ -64,6 +63,31 @@
         WHERE price >= #{minPrice}
         ORDER BY price ASC
     </select>
+    
+    <select id="count" resultType="int">
+    	SELECT COUNT(*) FROM books 
+    </select>
+    
+    <select id="findByAuthor" resultType="com.korea.ex_0723.vo.BookVO">
+    	SELECT * FROM books
+	    <where>
+	        <if test="author != null">
+	            author = #{author}
+	        </if>
+	    </where>
+	</select>
 	
-	
+	<!-- 정렬 조건을 사용자가 선택하는 경우 -->
+	<select id="findAllOrder" resultType="com.korea.ex_0723.vo.BookVO">
+		SELECT * FROM books
+		<choose>
+			<when test="sort == 'priceDesc'">
+				ORDER BY price DESC
+			</when>
+			<when test="sort == 'titleAsc'">
+				ORDER BY title ASC
+			</when>
+		</choose>
+	</select>
+
 </mapper>

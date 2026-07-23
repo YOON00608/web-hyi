@@ -36,12 +36,21 @@ public class BookService {
     public List<BookVO> findByCategory(String category) {
         return bookDAO.findByCategory(category);
     }
-
-    public List<BookVO> searchByTitle(String title) {
-        return bookDAO.searchByTitle(title);
+    
+    public List<BookVO> searchByTitle(String title){
+    	return bookDAO.searchByTitle(title);
     }
+    
 
     public List<BookVO> findByPriceMin(int min) {
         return bookDAO.findByPriceMin(min);
     }
+
+	public int count() {
+		return bookDAO.count();
+	}
+	
+	public List<BookVO> findAllOrder(String sort){
+		return bookDAO.findAllOrder(sort);
+	}
 }

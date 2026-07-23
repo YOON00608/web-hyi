@@ -53,14 +53,27 @@ public class BookControlle {
     public List<BookVO> findByCategory(@RequestParam String name) {
         return bookService.findByCategory(name);
     }
-
+    
     @GetMapping("/search")
-    public List<BookVO> searchByTitle(@RequestParam String title) {
-        return bookService.searchByTitle(title);
+    public List<BookVO> searchByTitle(@RequestParam String title){
+    	return bookService.searchByTitle(title);
     }
-
+    
     @GetMapping("/price")
     public List<BookVO> findByPriceMin(@RequestParam int min) {
         return bookService.findByPriceMin(min);
     }
+    
+    @GetMapping("/count")
+    public int count() {
+    	return bookService.count();
+    }
+    
+    @GetMapping("sort/{sort}")
+    public List<BookVO> findAllOrder(@PathVariable String sort){
+    	return bookService.findAllOrder(sort);
+    }
+    
+    
+    
 }

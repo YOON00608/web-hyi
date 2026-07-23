@@ -3,6 +3,7 @@ package com.korea.ex_0723.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.korea.ex_0723.vo.BookVO;
 
@@ -19,8 +20,14 @@ public interface BookDAO {
     int deleteBook(int id);
 
     List<BookVO> findByCategory(String category);
-
+    
     List<BookVO> searchByTitle(String title);
 
     List<BookVO> findByPriceMin(int minPrice);
+    
+    int count();
+    
+    List<BookVO> findAllOrder(@Param("sort")String sort);
+    
+    
 }
