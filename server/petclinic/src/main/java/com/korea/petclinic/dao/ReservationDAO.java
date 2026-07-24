@@ -15,15 +15,19 @@ public interface ReservationDAO {
 
     ReservationVO findById(Long id);
 
-    int insert(ReservationVO reservation);
+    int insert(ReservationVO vo);
 
-    int update(ReservationVO reservation);
+    int update(ReservationVO vo);
 
     int delete(Long id);
 
-    List<ReservationVO> searchDetail(@Param("search+Type") String searchType, @Param("keyword") String keyword);
+    List<ReservationVO> searchDetail(@Param("searchType") String searchType, @Param("keyword") String keyword);
 
     List<ReservationVO> sortByPrice(@Param("sort") String sort);
-
+    
     List<Map<String, Object>> getStatusCount();
+
+	List<ReservationVO> totalPrice();
+
+	Integer getTotalPrice();
 }

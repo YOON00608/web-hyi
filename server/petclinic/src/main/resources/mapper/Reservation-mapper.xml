@@ -67,12 +67,17 @@
             <otherwise>ASC</otherwise>
         </choose>
     </select>
-
-
+    
     <!-- 예약 상태별 예약 수 조회 -->
-    <select id="getStatusCount" resultType="java.util.HashMap">
+    <select id="getStatusCount" resultType="map">
         SELECT status, COUNT(*) AS count
         FROM reservation
         GROUP BY status
     </select>
+    
+    <select id="getTotalPrice" resultType="Integer">
+    	SELECT sum(price) FROM reservation
+    </select>
+    
+    
   </mapper>

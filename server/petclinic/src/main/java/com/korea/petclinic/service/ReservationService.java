@@ -25,13 +25,13 @@ public class ReservationService {
     }
 
     // 예약 등록 (영향받은 행의 수 반환)
-    public int insert(ReservationVO reservation) {
-        return reservationDAO.insert(reservation);
+    public int insert(ReservationVO vo) {
+        return reservationDAO.insert(vo);
     }
 
     // 예약 정보 수정
-    public int update(ReservationVO reservation) {
-        return reservationDAO.update(reservation);
+    public int update(ReservationVO vo) {
+        return reservationDAO.update(vo);
     }
 
     // 예약 삭제
@@ -45,12 +45,18 @@ public class ReservationService {
     }
 
     // 진료비 정렬
-    public List<ReservationVO> sortByPrice(String sort) {
-        return reservationDAO.sortByPrice(sort);
+    public List<ReservationVO> sortByPrice(String sort){
+    	return reservationDAO.sortByPrice(sort);
     }
-
+    
     // 예약 상태별 예약 수 조회
     public List<Map<String, Object>> getStatusCount() {
         return reservationDAO.getStatusCount();
     }
+
+	public Integer getTotalPrice() {
+		return reservationDAO.getTotalPrice();
+	}
+
+	
 }
