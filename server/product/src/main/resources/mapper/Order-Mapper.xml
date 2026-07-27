@@ -22,7 +22,7 @@
 		from orders o
 		inner join product p
 		on o.product_id = p.product_id
-		order by o.order_id desc
+		order by o.order_id DESC
 	</select>
 </mapper>
 
