@@ -39,7 +39,7 @@
     </delete>
 
 
-    <!-- 검색 기준 선택 (컬럼명을 DB 컬럼명인 스네이크케이스로 수정) -->
+    <!-- 검색 기준 선택 -->
 	<select id="searchDetail" resultType="com.korea.petclinic.vo.ReservationVO">
 	    SELECT * FROM reservation
 	    <where>
