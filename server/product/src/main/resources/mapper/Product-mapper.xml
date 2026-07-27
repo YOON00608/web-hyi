@@ -32,7 +32,7 @@
 	</update>
 	
 	<update id="decreaseStock">
-		update prodcut set
+		update product set
 			product_stock = #{productStock}
 		where product_id = #{productId}
 	</update>
